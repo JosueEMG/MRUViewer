@@ -55,7 +55,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel2.setText("Created by: Josué Emmnauel Medina García");
 
-        jLabel3.setText("Version: 0.2.1");
+        jLabel3.setText("Version: 0.2.2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
