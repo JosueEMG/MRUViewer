@@ -518,8 +518,8 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         try {
-            if(Double.parseDouble(txtAce.getText())<=0 || Double.parseDouble(txtAce1.getText())<=0){
-                JOptionPane.showMessageDialog(null, "Ingrese aceleracion mayor a 0");
+            if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
+                JOptionPane.showMessageDialog(null, "Debe ingresar aceleracion mayor a 0 o velocidad positiva", "Advertencia", JOptionPane.OK_OPTION);
             }
             else{
                 botonesInicio();

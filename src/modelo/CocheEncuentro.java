@@ -97,6 +97,6 @@ public class CocheEncuentro {
     }
     
     public double velocidad1() {
-        return v1 - a1*tiempoEncuentro();
+        return (v1 + a1*tiempoEncuentro())*-1;
     }
 }

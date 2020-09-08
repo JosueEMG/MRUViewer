@@ -63,6 +63,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MRUVProject");
+        setBackground(new java.awt.Color(51, 51, 51));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -82,7 +83,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel2.setText("Created by: Josué Emmnauel Medina García");
 
-        jLabel3.setText("Version: 0.3.2");
+        jLabel3.setText("Version: 0.3.3");
 
         btnCerrar.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         btnCerrar.setText("Cerrar");
