@@ -7,6 +7,7 @@ package vista;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -21,6 +22,10 @@ public class frmMenu extends javax.swing.JFrame {
      */
     public frmMenu() {
         initComponents();
+        try {
+            setIconImage(new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png")).getImage());            
+        } catch (Exception e) {
+        }
         this.setLocationRelativeTo(null);
         cerrar();
     }
@@ -77,7 +82,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel2.setText("Created by: Josué Emmnauel Medina García");
 
-        jLabel3.setText("Version: 0.3");
+        jLabel3.setText("Version: 0.3.2");
 
         btnCerrar.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         btnCerrar.setText("Cerrar");
@@ -130,6 +135,9 @@ public class frmMenu extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleDescription("This software has been created for show how the MRUV works with two cars");
+        getAccessibleContext().setAccessibleParent(this);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

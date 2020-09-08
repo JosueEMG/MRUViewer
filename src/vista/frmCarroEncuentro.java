@@ -26,6 +26,10 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     CocheEncuentroController c = new CocheEncuentroController();
     public frmCarroEncuentro() {
         initComponents();
+        try {
+            setIconImage(new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png")).getImage());            
+        } catch (Exception e) {
+        }
         mostrarimg();
         this.setLocationRelativeTo(null);
         btnPausar.setEnabled(false);
@@ -134,7 +138,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Tiempo de encuentro");
+        setTitle("MRUVProyect");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

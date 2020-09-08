@@ -6,6 +6,12 @@
     <Property name="title" type="java.lang.String" value="MRUVProject"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
+  <AccessibilityProperties>
+    <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="This software has been created for show how the MRUV works with two cars"/>
+    <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+      <Connection component="Form" type="bean"/>
+    </Property>
+  </AccessibilityProperties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
@@ -112,7 +118,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Version: 0.3"/>
+        <Property name="text" type="java.lang.String" value="Version: 0.3.2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCerrar">
