@@ -6,7 +6,6 @@
 
 package hilo;
 
-import controlador.CocheEncuentroController;
 import static java.lang.Thread.sleep;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -24,7 +23,6 @@ public class HiloEncuentro extends Thread{
     private JLabel carro;
     private JLabel carro1;
 
-    CocheEncuentroController cc = new CocheEncuentroController();
     public HiloEncuentro(frmCarroEncuentro frm, JLabel carro, JLabel carro1) {
         this.frm = frm;
         this.carro = carro;
@@ -47,16 +45,15 @@ public class HiloEncuentro extends Thread{
         int tiempo = 0;
         try {
             while (estado) { 
-                
                 sleep(10); 
                 x = frm.getCarro().getLocation().x;
                 x1 = frm.getCarro1().getLocation().x;
                 tiempo++;
                 carro.setLocation(x + ((int)posicion(x, Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtAce().getText()), tiempo)/1000), carro.getLocation().y);
-                carro1.setLocation(x1-((int)posicion(x1, Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtAce1().getText()), tiempo)/1000), carro.getLocation().y);  
+                carro1.setLocation(x1 - ((int)posicion(x1, Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtAce1().getText()), tiempo)/1000), carro.getLocation().y);  
                 frm.repaint(); 
-                if(x>=x1-100){
-                    estado=false;
+                if(x >= x1-100){
+                    estado = false;
                 }
             }
             frm.botonesFinal();

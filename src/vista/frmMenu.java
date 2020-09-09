@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import controlador.ViewController;
 
 /**
  *
@@ -17,9 +18,8 @@ import javax.swing.JOptionPane;
  */
 public class frmMenu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frmMenu
-     */
+    public ViewController controller;
+    
     public frmMenu() {
         initComponents();
         try {
@@ -28,6 +28,8 @@ public class frmMenu extends javax.swing.JFrame {
         }
         this.setLocationRelativeTo(null);
         cerrar();
+        controller = new ViewController(this);
+        
     }
 
     public void cerrar() {
@@ -54,88 +56,141 @@ public class frmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnEncuentro = new javax.swing.JButton();
-        btnAlcance = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        continerBtnTe = new javax.swing.JPanel();
+        btnEncuentro = new javax.swing.JButton();
+        continerBtnTa = new javax.swing.JPanel();
+        btnAlcance = new javax.swing.JButton();
+        continerBtnClose = new javax.swing.JPanel();
         btnCerrar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MRUVProject");
         setBackground(new java.awt.Color(51, 51, 51));
+        setPreferredSize(new java.awt.Dimension(535, 390));
         setResizable(false);
+        setSize(new java.awt.Dimension(600, 400));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        menu.setBackground(new java.awt.Color(255, 255, 255));
+        menu.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MRUVProyect");
+        menu.add(jLabel1);
+        jLabel1.setBounds(190, 0, 151, 32);
 
-        btnEncuentro.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Created by: Josué Emmnauel Medina García");
+        menu.add(jLabel2);
+        jLabel2.setBounds(10, 330, 270, 20);
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Version: 0.3.4");
+        menu.add(jLabel3);
+        jLabel3.setBounds(440, 330, 90, 20);
+
+        continerBtnTe.setBackground(new java.awt.Color(51, 51, 51));
+        continerBtnTe.setForeground(new java.awt.Color(255, 255, 255));
+        continerBtnTe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        continerBtnTe.setMinimumSize(new java.awt.Dimension(250, 80));
+        continerBtnTe.setPreferredSize(new java.awt.Dimension(350, 70));
+        continerBtnTe.setLayout(new java.awt.BorderLayout());
+
+        btnEncuentro.setBackground(new java.awt.Color(255, 255, 255));
+        btnEncuentro.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnEncuentro.setForeground(new java.awt.Color(255, 255, 255));
+        btnEncuentro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/encuentro.png"))); // NOI18N
+        btnEncuentro.setMnemonic('e');
         btnEncuentro.setText("Tiempo de encuentro");
+        btnEncuentro.setContentAreaFilled(false);
+        btnEncuentro.setFocusPainted(false);
+        btnEncuentro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEncuentro.setIconTextGap(20);
         btnEncuentro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEncuentroActionPerformed(evt);
             }
         });
+        continerBtnTe.add(btnEncuentro, java.awt.BorderLayout.CENTER);
 
-        btnAlcance.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        btnAlcance.setText("Tiempor de alcance");
+        menu.add(continerBtnTe);
+        continerBtnTe.setBounds(95, 70, 350, 70);
 
-        jLabel2.setText("Created by: Josué Emmnauel Medina García");
+        continerBtnTa.setBackground(new java.awt.Color(51, 51, 51));
+        continerBtnTa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        continerBtnTa.setMinimumSize(new java.awt.Dimension(250, 80));
+        continerBtnTa.setPreferredSize(new java.awt.Dimension(350, 70));
+        continerBtnTa.setLayout(new java.awt.BorderLayout());
 
-        jLabel3.setText("Version: 0.3.3");
+        btnAlcance.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnAlcance.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlcance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/alcance.png"))); // NOI18N
+        btnAlcance.setMnemonic('a');
+        btnAlcance.setText("Tiempo de alcance");
+        btnAlcance.setContentAreaFilled(false);
+        btnAlcance.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAlcance.setIconTextGap(20);
+        btnAlcance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlcanceActionPerformed(evt);
+            }
+        });
+        continerBtnTa.add(btnAlcance, java.awt.BorderLayout.CENTER);
 
-        btnCerrar.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        menu.add(continerBtnTa);
+        continerBtnTa.setBounds(95, 160, 350, 70);
+
+        continerBtnClose.setBackground(new java.awt.Color(255, 51, 51));
+        continerBtnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        continerBtnClose.setPreferredSize(new java.awt.Dimension(350, 40));
+        continerBtnClose.setLayout(new java.awt.BorderLayout());
+
+        btnCerrar.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setMnemonic('c');
         btnCerrar.setText("Cerrar");
+        btnCerrar.setContentAreaFilled(false);
+        btnCerrar.setMaximumSize(new java.awt.Dimension(177, 37));
+        btnCerrar.setMinimumSize(new java.awt.Dimension(177, 37));
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
             }
         });
+        continerBtnClose.add(btnCerrar, java.awt.BorderLayout.CENTER);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btnEncuentro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(btnAlcance, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAlcance, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEncuentro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addContainerGap())
-        );
+        menu.add(continerBtnClose);
+        continerBtnClose.setBounds(95, 250, 350, 40);
+
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel4.setText("(Atl + A)");
+        menu.add(jLabel4);
+        jLabel4.setBounds(450, 200, 60, 16);
+
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel5.setText("(Atl + C)");
+        menu.add(jLabel5);
+        jLabel5.setBounds(450, 270, 60, 16);
+
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel6.setText("(Atl + E)");
+        menu.add(jLabel6);
+        jLabel6.setBounds(450, 110, 60, 16);
+
+        getContentPane().add(menu, java.awt.BorderLayout.CENTER);
 
         getAccessibleContext().setAccessibleDescription("This software has been created for show how the MRUV works with two cars");
         getAccessibleContext().setAccessibleParent(this);
@@ -152,6 +207,10 @@ public class frmMenu extends javax.swing.JFrame {
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         confirmarSalida();
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnAlcanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlcanceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlcanceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,13 +246,45 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlcance;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEncuentro;
+    public javax.swing.JPanel continerBtnClose;
+    public javax.swing.JPanel continerBtnTa;
+    public javax.swing.JPanel continerBtnTe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel menu;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnCerrar() {
+        return btnCerrar;
+    }
+
+    public void setBtnCerrar(javax.swing.JButton btnCerrar) {
+        this.btnCerrar = btnCerrar;
+    }
+
+    public javax.swing.JButton getBtnEncuentro() {
+        return btnEncuentro;
+    }
+
+    public void setBtnEncuentro(javax.swing.JButton btnEncuentro) {
+        this.btnEncuentro = btnEncuentro;
+    }
+
+    public javax.swing.JButton getBtnAlcance() {
+        return btnAlcance;
+    }
+
+    public void setBtnAlcance(javax.swing.JButton btnEncuentro1) {
+        this.btnAlcance = btnEncuentro1;
+    }
 }
