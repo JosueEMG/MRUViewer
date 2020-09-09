@@ -17,7 +17,6 @@ import vista.frmCarroEncuentro;
  * @author Josue Emmanuel Medina Garcia
  */
 public class HiloEncuentro extends Thread{
-
     boolean estado = true;
     private frmCarroEncuentro frm; 
     private JLabel carro;
@@ -43,9 +42,11 @@ public class HiloEncuentro extends Thread{
         int x = 0;
         int x1 = 0;
         int tiempo = 0;
+        int velocidad = 0;
         try {
-            while (estado) { 
-                sleep(10); 
+            while (estado) {
+                velocidad = frm.velocidad();
+                sleep(velocidad); 
                 x = frm.getCarro().getLocation().x;
                 x1 = frm.getCarro1().getLocation().x;
                 tiempo++;

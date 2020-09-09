@@ -21,7 +21,7 @@ import javax.swing.JFrame;
  * @author Josue Emmanuel Medina Garcia
  */
 public class frmCarroEncuentro extends javax.swing.JFrame {
-
+    
     public static HiloEncuentro h;
     CocheEncuentroController c = new CocheEncuentroController();
     public frmCarroEncuentro() {
@@ -102,7 +102,6 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
-        jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         tiempoEncuentro = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -112,6 +111,8 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         btnPausar = new javax.swing.JButton();
         btnReanudar = new javax.swing.JButton();
         btnParar = new javax.swing.JButton();
+        cbVelocidad = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -135,11 +136,13 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MRUVProyect");
         setMinimumSize(new java.awt.Dimension(1300, 750));
         setPreferredSize(new java.awt.Dimension(1300, 750));
+        setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
@@ -199,12 +202,6 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jPanel5.add(jScrollPane2);
         jScrollPane2.setBounds(10, 520, 243, 180);
 
-        jLabel10.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Datos coche 2");
-        jPanel5.add(jLabel10);
-        jLabel10.setBounds(850, 490, 120, 25);
-
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Tiempo de encuentro: ");
@@ -242,7 +239,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnIniciar);
-        btnIniciar.setBounds(20, 50, 100, 36);
+        btnIniciar.setBounds(20, 40, 100, 50);
 
         btnPausar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         btnPausar.setText("Pausar");
@@ -252,7 +249,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnPausar);
-        btnPausar.setBounds(120, 50, 100, 36);
+        btnPausar.setBounds(120, 40, 100, 50);
 
         btnReanudar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         btnReanudar.setText("Reanudar");
@@ -262,7 +259,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnReanudar);
-        btnReanudar.setBounds(20, 120, 100, 36);
+        btnReanudar.setBounds(20, 90, 100, 50);
 
         btnParar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
         btnParar.setText("Parar");
@@ -272,10 +269,21 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
         });
         jPanel4.add(btnParar);
-        btnParar.setBounds(120, 120, 100, 36);
+        btnParar.setBounds(120, 90, 100, 50);
+
+        cbVelocidad.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
+        cbVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Rapido" }));
+        jPanel4.add(cbVelocidad);
+        cbVelocidad.setBounds(20, 180, 200, 32);
+
+        jLabel10.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Velocidad:");
+        jPanel4.add(jLabel10);
+        jLabel10.setBounds(20, 150, 80, 22);
 
         jPanel5.add(jPanel4);
-        jPanel4.setBounds(1040, 260, 235, 200);
+        jPanel4.setBounds(1040, 240, 235, 230);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -355,7 +363,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel6.setBounds(130, 150, 20, 22);
 
         jPanel5.add(jPanel2);
-        jPanel2.setBounds(1040, 50, 235, 200);
+        jPanel2.setBounds(1040, 40, 235, 200);
 
         btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(0, 0, 0));
@@ -430,6 +438,12 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jPanel5.add(jScrollPane3);
         jScrollPane3.setBounds(790, 520, 243, 180);
 
+        jLabel18.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Datos coche 2");
+        jPanel5.add(jLabel18);
+        jLabel18.setBounds(850, 490, 120, 25);
+
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -446,6 +460,12 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         btnReanudar.setEnabled(false);
         btnIniciar.setEnabled(true);
     }
+    
+    public int velocidad() {
+        int vec[] = {10, 20, 5};
+        return vec[cbVelocidad.getSelectedIndex()];
+    }
+    
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         try {
             if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
@@ -549,6 +569,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel carro;
     private javax.swing.JLabel carro1;
+    private javax.swing.JComboBox<String> cbVelocidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -558,6 +579,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
