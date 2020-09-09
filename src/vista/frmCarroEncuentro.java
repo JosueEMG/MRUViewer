@@ -132,6 +132,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
 
@@ -146,35 +147,19 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(65, 65, 65));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(null);
 
         carro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/coche_l.png"))); // NOI18N
+        jPanel1.add(carro1);
+        carro1.setBounds(900, 330, 100, 100);
 
         carro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/camioneta_r.png"))); // NOI18N
         carro.setToolTipText("");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(carro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 701, Short.MAX_VALUE)
-                .addComponent(carro1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(294, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(carro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(carro1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        jPanel1.add(carro);
+        carro.setBounds(20, 330, 100, 100);
 
         jPanel5.add(jPanel1);
-        jPanel1.setBounds(6, 51, 1025, 410);
+        jPanel1.setBounds(6, 51, 1030, 410);
 
         jLabel9.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,7 +235,6 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jPanel4.setLayout(null);
 
         btnIniciar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        btnIniciar.setForeground(new java.awt.Color(0, 0, 0));
         btnIniciar.setText("Iniciar");
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,7 +245,6 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         btnIniciar.setBounds(20, 50, 100, 36);
 
         btnPausar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        btnPausar.setForeground(new java.awt.Color(0, 0, 0));
         btnPausar.setText("Pausar");
         btnPausar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +255,6 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         btnPausar.setBounds(120, 50, 100, 36);
 
         btnReanudar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        btnReanudar.setForeground(new java.awt.Color(0, 0, 0));
         btnReanudar.setText("Reanudar");
         btnReanudar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,7 +265,6 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         btnReanudar.setBounds(20, 120, 100, 36);
 
         btnParar.setFont(new java.awt.Font("Yu Gothic UI", 1, 14)); // NOI18N
-        btnParar.setForeground(new java.awt.Color(0, 0, 0));
         btnParar.setText("Parar");
         btnParar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,6 +374,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("Indicaciones:");
         jPanel3.add(jLabel16, java.awt.BorderLayout.NORTH);
 
@@ -403,11 +385,18 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("1 segundo = 10 milisegundos reales");
         jPanel3.add(jLabel8, java.awt.BorderLayout.PAGE_END);
 
+        jLabel17.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel17.setText("1 Coche = 100 metros");
+        jPanel3.add(jLabel17, java.awt.BorderLayout.CENTER);
+
         jPanel5.add(jPanel3);
-        jPanel3.setBounds(380, 520, 270, 110);
+        jPanel3.setBounds(380, 500, 270, 130);
 
         jScrollPane3.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane3.setPreferredSize(new java.awt.Dimension(450, 405));
@@ -464,16 +453,31 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
             else{
                 botonesInicio();
-                int x = Integer.parseInt(txtPos.getText());
-                int x1 = Integer.parseInt(txtPos1.getText());
-                carro.setLocation(x, 300);
-                carro1.setLocation(x1, 300);
-                mostrarimg();
-                h = new HiloEncuentro(this, carro, carro1);
-                h.start();
+                if (Integer.parseInt(txtPos1.getText()) > 1030) {
+                    int valor = JOptionPane.showConfirmDialog(this, "El coche 2 aparecerá fuera de la pantalla si le pone ese valor de X. \n¿Está seguro de continuar con la animación?", "Advertencia", JOptionPane.YES_NO_OPTION);
+                    if(valor == JOptionPane.YES_OPTION){
+                        carro.setLocation(Integer.parseInt(txtPos.getText()), 325);
+                        carro1.setLocation(Integer.parseInt(txtPos1.getText()), 325);
+                        mostrarimg();
+                        h = new HiloEncuentro(this, carro, carro1);
+                        h.start();
+                    }
+                    else{
+                        botonesFinal();
+                        return;
+                    }
+                }
+                else {
+                    carro.setLocation(Integer.parseInt(txtPos.getText()), 325);
+                    carro1.setLocation(Integer.parseInt(txtPos1.getText()), 325);
+                    mostrarimg();
+                    h = new HiloEncuentro(this, carro, carro1);
+                    h.start();
+                }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos", "Advetencia" , JOptionPane.ERROR_MESSAGE);
+            botonesFinal();
+            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos o valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         } 
     }//GEN-LAST:event_btnIniciarActionPerformed
 
@@ -553,6 +557,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
