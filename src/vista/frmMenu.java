@@ -95,7 +95,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Version: 0.3.4");
+        jLabel3.setText("Version: 0.3.5");
         menu.add(jLabel3);
         jLabel3.setBounds(440, 330, 90, 20);
 
@@ -176,19 +176,19 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("(Atl + A)");
         menu.add(jLabel4);
-        jLabel4.setBounds(450, 200, 60, 16);
+        jLabel4.setBounds(460, 190, 60, 16);
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("(Atl + C)");
         menu.add(jLabel5);
-        jLabel5.setBounds(450, 270, 60, 16);
+        jLabel5.setBounds(360, 260, 60, 16);
 
         jLabel6.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("(Atl + E)");
         menu.add(jLabel6);
-        jLabel6.setBounds(450, 110, 60, 16);
+        jLabel6.setBounds(460, 100, 60, 16);
 
         getContentPane().add(menu, java.awt.BorderLayout.CENTER);
 
