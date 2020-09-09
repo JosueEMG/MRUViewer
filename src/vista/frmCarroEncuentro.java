@@ -236,7 +236,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Tiempo de encuentro");
         jPanel5.add(jLabel14);
-        jLabel14.setBounds(488, 13, 233, 32);
+        jLabel14.setBounds(490, 10, 233, 32);
 
         jLabel15.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
