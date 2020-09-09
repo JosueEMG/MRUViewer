@@ -462,7 +462,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }
     
     public int velocidad() {
-        int vec[] = {10, 25, 5};
+        int vec[] = {15, 35, 5};
         return vec[cbVelocidad.getSelectedIndex()];
     }
     
