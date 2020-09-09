@@ -16,7 +16,7 @@ import vista.frmMenu;
  * 
  * @author Josue Emmanuel Medina Garcia
  */
-public class ViewController implements MouseListener{
+public class ViewMenuController implements MouseListener{
 
     private final frmMenu menu;
     
@@ -26,7 +26,7 @@ public class ViewController implements MouseListener{
         menu.getBtnCerrar().addMouseListener(this);
     }
 
-    public ViewController(frmMenu menu) {
+    public ViewMenuController(frmMenu menu) {
         this.menu = menu;
         events();
     }

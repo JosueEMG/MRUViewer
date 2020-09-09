@@ -464,8 +464,10 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
             else{
                 botonesInicio();
-                carro.setLocation(Integer.parseInt(txtPos.getText()), 300);
-                carro1.setLocation(Integer.parseInt(txtPos1.getText()), 300);
+                int x = Integer.parseInt(txtPos.getText());
+                int x1 = Integer.parseInt(txtPos1.getText());
+                carro.setLocation(x, 300);
+                carro1.setLocation(x1, 300);
                 mostrarimg();
                 h = new HiloEncuentro(this, carro, carro1);
                 h.start();

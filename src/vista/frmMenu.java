@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import controlador.ViewController;
+import controlador.ViewMenuController;
 
 /**
  *
@@ -18,7 +18,7 @@ import controlador.ViewController;
  */
 public class frmMenu extends javax.swing.JFrame {
 
-    public ViewController controller;
+    public ViewMenuController controller;
     
     public frmMenu() {
         initComponents();
@@ -28,7 +28,7 @@ public class frmMenu extends javax.swing.JFrame {
         }
         this.setLocationRelativeTo(null);
         cerrar();
-        controller = new ViewController(this);
+        controller = new ViewMenuController(this);
         
     }
 
@@ -95,7 +95,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Version: 0.3.7");
+        jLabel3.setText("Version: 0.3.8");
         menu.add(jLabel3);
         jLabel3.setBounds(440, 330, 90, 20);
 
