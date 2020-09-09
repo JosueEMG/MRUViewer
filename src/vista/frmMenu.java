@@ -152,7 +152,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         continerBtnClose.setBackground(new java.awt.Color(255, 51, 51));
         continerBtnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        continerBtnClose.setPreferredSize(new java.awt.Dimension(350, 40));
+        continerBtnClose.setPreferredSize(new java.awt.Dimension(150, 40));
         continerBtnClose.setLayout(new java.awt.BorderLayout());
 
         btnCerrar.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
@@ -170,7 +170,7 @@ public class frmMenu extends javax.swing.JFrame {
         continerBtnClose.add(btnCerrar, java.awt.BorderLayout.CENTER);
 
         menu.add(continerBtnClose);
-        continerBtnClose.setBounds(95, 250, 350, 40);
+        continerBtnClose.setBounds(195, 250, 150, 40);
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
