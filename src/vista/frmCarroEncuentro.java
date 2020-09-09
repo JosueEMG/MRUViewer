@@ -400,7 +400,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel17.setText("1 Coche = 100 metros");
+        jLabel17.setText("1 Coche = 100 pixeles");
         jPanel3.add(jLabel17, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel3);
@@ -462,7 +462,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }
     
     public int velocidad() {
-        int vec[] = {10, 20, 5};
+        int vec[] = {10, 25, 5};
         return vec[cbVelocidad.getSelectedIndex()];
     }
     
