@@ -430,7 +430,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jScrollPane4.setBounds(760, 520, 240, 180);
 
         continerBtnBack.setBackground(new java.awt.Color(51, 150, 51));
-        continerBtnBack.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        continerBtnBack.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
         continerBtnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         continerBtnBack.setPreferredSize(new java.awt.Dimension(150, 40));
         continerBtnBack.setLayout(new java.awt.BorderLayout());
