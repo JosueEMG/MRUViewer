@@ -65,20 +65,23 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         }
     }
     
-    void mostrarimg(){
+    void mostrarimg() {
         ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png"));
         Image imgesc = img.getImage().getScaledInstance(carro.getWidth(), carro.getHeight(), Image.SCALE_SMOOTH);
         carro.setIcon(new ImageIcon(imgesc));
         ImageIcon img1 = new ImageIcon(getClass().getResource("/imagenes/coche_l.png"));
         Image imgesc1 = img1.getImage().getScaledInstance(carro1.getWidth(), carro1.getHeight(), Image.SCALE_SMOOTH);
         carro1.setIcon(new ImageIcon(imgesc1));
+        ImageIcon img2 = new ImageIcon(getClass().getResource("/imagenes/fondopanelMRUVProject.png"));
+        Image imgesc2 = img2.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_SMOOTH);
+        fondo.setIcon(new ImageIcon(imgesc2));
     }
     
-    public void añadir(CocheEncuentro e){
+    public void añadir(CocheEncuentro e) {
         c.añadir(e);
     }
     
-    public void listar(){
+    public void listar() {
         DefaultTableModel dt = (DefaultTableModel)tabla.getModel();
         DefaultTableModel dt1 = (DefaultTableModel)tabla1.getModel();
         dt.setRowCount(0);
@@ -102,6 +105,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         carro1 = new javax.swing.JLabel();
         carro = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         tiempoEncuentro = new javax.swing.JLabel();
@@ -144,7 +148,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MRUVProyect");
+        setTitle("MRUVProject");
         setMinimumSize(new java.awt.Dimension(1300, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -158,12 +162,16 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         carro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/coche_l.png"))); // NOI18N
         jPanel1.add(carro1);
-        carro1.setBounds(900, 330, 100, 100);
+        carro1.setBounds(900, 310, 100, 100);
 
         carro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/camioneta_r.png"))); // NOI18N
         carro.setToolTipText("");
         jPanel1.add(carro);
-        carro.setBounds(20, 330, 100, 100);
+        carro.setBounds(5, 310, 100, 100);
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondopanelMRUVProject.png"))); // NOI18N
+        jPanel1.add(fondo);
+        fondo.setBounds(0, 0, 1030, 410);
 
         jPanel5.add(jPanel1);
         jPanel1.setBounds(6, 51, 1030, 410);
@@ -255,7 +263,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel10.setBounds(20, 150, 80, 22);
 
         jPanel5.add(jPanel4);
-        jPanel4.setBounds(1050, 240, 235, 230);
+        jPanel4.setBounds(1045, 240, 235, 230);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -275,6 +283,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel1.setBounds(20, 70, 20, 22);
 
         txtPos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtPos.setText("100");
         jPanel2.add(txtPos);
         txtPos.setBounds(40, 70, 61, 28);
 
@@ -305,6 +314,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel11.setBounds(130, 30, 60, 22);
 
         txtPos1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtPos1.setText("900");
         jPanel2.add(txtPos1);
         txtPos1.setBounds(150, 70, 61, 28);
 
@@ -335,7 +345,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel6.setBounds(130, 150, 20, 22);
 
         jPanel5.add(jPanel2);
-        jPanel2.setBounds(1050, 40, 235, 200);
+        jPanel2.setBounds(1045, 40, 235, 200);
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
@@ -349,7 +359,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("1m = 1 pixel");
+        jLabel7.setText("1m = 1px");
         jPanel3.add(jLabel7, java.awt.BorderLayout.WEST);
 
         jLabel8.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
@@ -361,11 +371,11 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel17.setText("1 Coche = 100 pixeles");
+        jLabel17.setText("1 Coche = 100m");
         jPanel3.add(jLabel17, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(jPanel3);
-        jPanel3.setBounds(380, 500, 270, 130);
+        jPanel3.setBounds(380, 510, 270, 130);
 
         jLabel18.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -394,6 +404,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
                 "Xf", "Vf", "A"
             }
         ));
+        tabla.setGridColor(new java.awt.Color(0, 0, 0));
         tabla.setSelectionForeground(new java.awt.Color(51, 51, 51));
         tabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla);
@@ -422,6 +433,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
                 "Xf", "Vf", "A"
             }
         ));
+        tabla1.setGridColor(new java.awt.Color(0, 0, 0));
         tabla1.setSelectionForeground(new java.awt.Color(51, 51, 51));
         tabla1.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(tabla1);
@@ -463,7 +475,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void botonesInicio(){
+    public void botonesInicio() {
         btnParar.setEnabled(true);
         btnPausar.setEnabled(true);
         btnIniciar.setEnabled(false);
@@ -487,11 +499,11 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
             else{
                 botonesInicio();
-                if (Integer.parseInt(txtPos1.getText()) > 1030) {
-                    int valor = JOptionPane.showConfirmDialog(this, "El coche 2 aparecerá fuera de la pantalla si le pone ese valor de X. \n¿Está seguro de continuar con la animación?", "Advertencia", JOptionPane.YES_NO_OPTION);
+                if (Integer.parseInt(txtPos1.getText()) > 1030 || Integer.parseInt(txtPos.getText()) <= 0) {
+                    int valor = JOptionPane.showConfirmDialog(this, "Uno o dos coches aparecerán fuera de la pantalla. \n¿Está seguro de continuar con la animación?", "Advertencia", JOptionPane.YES_NO_OPTION);
                     if(valor == JOptionPane.YES_OPTION){
-                        carro.setLocation(Integer.parseInt(txtPos.getText()), 325);
-                        carro1.setLocation(Integer.parseInt(txtPos1.getText()), 325);
+                        carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
+                        carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
                         mostrarimg();
                         h = new HiloEncuentro(this, carro, carro1);
                         h.start();
@@ -502,8 +514,8 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
                     }
                 }
                 else {
-                    carro.setLocation(Integer.parseInt(txtPos.getText()), 325);
-                    carro1.setLocation(Integer.parseInt(txtPos1.getText()), 325);
+                    carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
+                    carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
                     mostrarimg();
                     h = new HiloEncuentro(this, carro, carro1);
                     h.start();
@@ -537,44 +549,6 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         confirmar();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCarroEncuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCarroEncuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCarroEncuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCarroEncuentro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmCarroEncuentro().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnParar;
@@ -585,6 +559,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     private javax.swing.JLabel carro1;
     private javax.swing.JComboBox<String> cbVelocidad;
     public javax.swing.JPanel continerBtnBack;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

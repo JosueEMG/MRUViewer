@@ -83,9 +83,9 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MRUVProyect");
+        jLabel1.setText("MRUVProject");
         menu.add(jLabel1);
-        jLabel1.setBounds(190, 0, 151, 32);
+        jLabel1.setBounds(195, 0, 145, 32);
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -95,7 +95,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Version: 0.4.5");
+        jLabel3.setText("Version: 0.4.6");
         menu.add(jLabel3);
         jLabel3.setBounds(440, 330, 90, 20);
 

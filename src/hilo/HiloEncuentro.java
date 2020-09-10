@@ -50,8 +50,8 @@ public class HiloEncuentro extends Thread{
                 x = frm.getCarro().getLocation().x;
                 x1 = frm.getCarro1().getLocation().x;
                 tiempo++;
-                carro.setLocation(x + ((int)posicion(x, Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtAce().getText()), tiempo)/1000), carro.getLocation().y);
-                carro1.setLocation(x1 - ((int)posicion(x1, Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtAce1().getText()), tiempo)/1000), carro.getLocation().y);  
+                carro.setLocation(x + ((int)posicion(x, Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtAce().getText()), tiempo)/1000), 310);
+                carro1.setLocation(x1 - ((int)posicion(x1, Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtAce1().getText()), tiempo)/1000), 310);  
                 frm.repaint(); 
                 if(x >= x1-100){
                     estado = false;
@@ -59,7 +59,7 @@ public class HiloEncuentro extends Thread{
             }
             frm.botonesFinal();
             JOptionPane.showMessageDialog(null, "Los coches chocaron :(");
-            CocheEncuentro coche = new CocheEncuentro(Double.parseDouble(frm.getTxtPos().getText()),Double.parseDouble(frm.getTxtPos1().getText()), Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtVel1().getText()), Double.parseDouble(frm.getTxtAce().getText()), Double.parseDouble(frm.getTxtAce1().getText()));
+            CocheEncuentro coche = new CocheEncuentro(Double.parseDouble(frm.getTxtPos().getText())-100,Double.parseDouble(frm.getTxtPos1().getText()), Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtVel1().getText()), Double.parseDouble(frm.getTxtAce().getText()), Double.parseDouble(frm.getTxtAce1().getText()));
             frm.añadir(coche);
             frm.listar();
             } catch (Exception e) {
