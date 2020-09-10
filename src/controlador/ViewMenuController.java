@@ -59,7 +59,7 @@ public class ViewMenuController implements MouseListener{
             changeBackground(menu.continerBtnTa, new Color(44, 62, 80));
         }
         else if(evt.equals(menu.getBtnCerrar())) {
-            changeBackground(menu.continerBtnClose, new Color(255, 62, 80));
+            changeBackground(menu.continerBtnClose, new Color(255, 80, 80));
         }
     }
 

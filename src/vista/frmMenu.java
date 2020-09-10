@@ -100,6 +100,7 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel3.setBounds(440, 330, 90, 20);
 
         continerBtnTe.setBackground(new java.awt.Color(51, 51, 51));
+        continerBtnTe.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
         continerBtnTe.setForeground(new java.awt.Color(255, 255, 255));
         continerBtnTe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         continerBtnTe.setMinimumSize(new java.awt.Dimension(250, 80));
@@ -124,9 +125,10 @@ public class frmMenu extends javax.swing.JFrame {
         continerBtnTe.add(btnEncuentro, java.awt.BorderLayout.CENTER);
 
         menu.add(continerBtnTe);
-        continerBtnTe.setBounds(95, 70, 350, 70);
+        continerBtnTe.setBounds(90, 70, 360, 70);
 
         continerBtnTa.setBackground(new java.awt.Color(51, 51, 51));
+        continerBtnTa.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));
         continerBtnTa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         continerBtnTa.setMinimumSize(new java.awt.Dimension(250, 80));
         continerBtnTa.setPreferredSize(new java.awt.Dimension(350, 70));
@@ -148,9 +150,10 @@ public class frmMenu extends javax.swing.JFrame {
         continerBtnTa.add(btnAlcance, java.awt.BorderLayout.CENTER);
 
         menu.add(continerBtnTa);
-        continerBtnTa.setBounds(95, 160, 350, 70);
+        continerBtnTa.setBounds(90, 160, 360, 70);
 
         continerBtnClose.setBackground(new java.awt.Color(255, 51, 51));
+        continerBtnClose.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
         continerBtnClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         continerBtnClose.setPreferredSize(new java.awt.Dimension(150, 40));
         continerBtnClose.setLayout(new java.awt.BorderLayout());
@@ -176,7 +179,7 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("(Atl + A)");
         menu.add(jLabel4);
-        jLabel4.setBounds(450, 190, 60, 16);
+        jLabel4.setBounds(460, 190, 60, 16);
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
@@ -188,7 +191,7 @@ public class frmMenu extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
         jLabel6.setText("(Atl + E)");
         menu.add(jLabel6);
-        jLabel6.setBounds(450, 100, 60, 16);
+        jLabel6.setBounds(460, 100, 60, 16);
 
         getContentPane().add(menu, java.awt.BorderLayout.CENTER);
 
