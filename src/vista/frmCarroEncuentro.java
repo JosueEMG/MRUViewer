@@ -36,13 +36,29 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             setIconImage(new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png")).getImage());            
         } catch (Exception e) {
         }
-        mostrarimg();
+        mostrarImg();
         this.setLocationRelativeTo(null);
         btnPausar.setEnabled(false);
         btnReanudar.setEnabled(false);
         btnParar.setEnabled(false);
-        cerrar();
-        
+        cerrar(); 
+    }
+    
+    public void añadir(CocheEncuentro e) {
+        c.añadir(e);
+    }
+    
+    public void botonesInicio() {
+        btnParar.setEnabled(true);
+        btnPausar.setEnabled(true);
+        btnIniciar.setEnabled(false);
+    }
+    
+    public void botonesFinal(){
+        btnParar.setEnabled(false);
+        btnPausar.setEnabled(false);
+        btnReanudar.setEnabled(false);
+        btnIniciar.setEnabled(true);
     }
     
     public void cerrar() {
@@ -72,41 +88,46 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
                 frmMenu menu = new frmMenu();
                 menu.setVisible(true);
             }
+            else{
+                salirDirecto = false;
+            }
         }
     }
     
-    public void limpiar() {
+    public void frameInicial() {
+        salirDirecto = false;
+        carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
+        carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
+        mostrarImg();
+        h = new HiloEncuentro(this, carro, carro1);
+        h.start();
+    }
+    
+    public void iniciar() {
         try {
-            int valor = JOptionPane.showConfirmDialog(this, "Se eliminaran todos los datos registrados. \n¿Está seguro(a) de realizar esta acción?", "Advertencia", JOptionPane.YES_NO_OPTION);
-            if(valor == JOptionPane.YES_OPTION){
-                txtAce.setText("");
-                txtAce1.setText("");
-                txtPos.setText("");
-                txtPos1.setText("");
-                txtVel.setText("");
-                txtVel1.setText("");
-                dt.setRowCount(0);
-                dt1.setRowCount(0);
+            if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
+                JOptionPane.showMessageDialog(null, "Debe ingresar aceleracion mayor a 0 o velocidad positiva", "Advertencia", JOptionPane.OK_OPTION);
+            }
+            else{
+                botonesInicio();
+                if (Integer.parseInt(txtPos1.getText()) > 1030 || Integer.parseInt(txtPos.getText()) <= 0) {
+                    int valor = JOptionPane.showConfirmDialog(this, "Uno o dos coches aparecerán fuera de la pantalla. \n¿Está seguro de continuar con la animación?", "Advertencia", JOptionPane.YES_NO_OPTION);
+                    if(valor == JOptionPane.YES_OPTION){
+                        frameInicial();
+                    }
+                    else{
+                        botonesFinal();
+                        return;
+                    }
+                }
+                else {
+                    frameInicial();
+                }
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No hay datos registrados en la tabla", "Advetencia" , JOptionPane.ERROR_MESSAGE);
-        }
-    }
-    
-    void mostrarimg() {
-        ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png"));
-        Image imgesc = img.getImage().getScaledInstance(carro.getWidth(), carro.getHeight(), Image.SCALE_SMOOTH);
-        carro.setIcon(new ImageIcon(imgesc));
-        ImageIcon img1 = new ImageIcon(getClass().getResource("/imagenes/coche_l.png"));
-        Image imgesc1 = img1.getImage().getScaledInstance(carro1.getWidth(), carro1.getHeight(), Image.SCALE_SMOOTH);
-        carro1.setIcon(new ImageIcon(imgesc1));
-        ImageIcon img2 = new ImageIcon(getClass().getResource("/imagenes/fondopanelMRUVProject.png"));
-        Image imgesc2 = img2.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_SMOOTH);
-        fondo.setIcon(new ImageIcon(imgesc2));
-    }
-    
-    public void añadir(CocheEncuentro e) {
-        c.añadir(e);
+            botonesFinal();
+            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos o valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
+        } 
     }
     
     public void listar() {
@@ -121,6 +142,39 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             dt1.addRow(v1);
             tiempoEncuentro.setText(""+Math.round(c.tiempoEncuentro()*100.0)/100.0+" Segundos");
         }  
+    }
+    
+    public void limpiar() {
+        int valor = JOptionPane.showConfirmDialog(this, "Se eliminaran todos los datos registrados. \n¿Está seguro(a) de realizar esta acción?", "Advertencia", JOptionPane.YES_NO_OPTION);
+        if(valor == JOptionPane.YES_OPTION){
+            salirDirecto = true;
+            txtAce.setText("");
+            txtAce1.setText("");
+            txtPos.setText("");
+            txtPos1.setText("");
+            txtVel.setText("");
+            txtVel1.setText("");
+            dt.setRowCount(0);
+            dt1.setRowCount(0);
+            c.eliminar();
+        }
+    }
+    
+    void mostrarImg() {
+        ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png"));
+        Image imgesc = img.getImage().getScaledInstance(carro.getWidth(), carro.getHeight(), Image.SCALE_SMOOTH);
+        carro.setIcon(new ImageIcon(imgesc));
+        ImageIcon img1 = new ImageIcon(getClass().getResource("/imagenes/coche_l.png"));
+        Image imgesc1 = img1.getImage().getScaledInstance(carro1.getWidth(), carro1.getHeight(), Image.SCALE_SMOOTH);
+        carro1.setIcon(new ImageIcon(imgesc1));
+        ImageIcon img2 = new ImageIcon(getClass().getResource("/imagenes/fondopanelMRUVProject.png"));
+        Image imgesc2 = img2.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_SMOOTH);
+        fondo.setIcon(new ImageIcon(imgesc2));
+    }
+    
+    public int velocidad() {
+        int vec[] = {15, 35, 5};
+        return vec[cbVelocidad.getSelectedIndex()];
     }
 
     @SuppressWarnings("override")
@@ -521,59 +575,9 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public void botonesInicio() {
-        btnParar.setEnabled(true);
-        btnPausar.setEnabled(true);
-        btnIniciar.setEnabled(false);
-    }
-    public void botonesFinal(){
-        btnParar.setEnabled(false);
-        btnPausar.setEnabled(false);
-        btnReanudar.setEnabled(false);
-        btnIniciar.setEnabled(true);
-    }
-    
-    public int velocidad() {
-        int vec[] = {15, 35, 5};
-        return vec[cbVelocidad.getSelectedIndex()];
-    }
     
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        try {
-            if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
-                JOptionPane.showMessageDialog(null, "Debe ingresar aceleracion mayor a 0 o velocidad positiva", "Advertencia", JOptionPane.OK_OPTION);
-            }
-            else{
-                botonesInicio();
-                if (Integer.parseInt(txtPos1.getText()) > 1030 || Integer.parseInt(txtPos.getText()) <= 0) {
-                    int valor = JOptionPane.showConfirmDialog(this, "Uno o dos coches aparecerán fuera de la pantalla. \n¿Está seguro de continuar con la animación?", "Advertencia", JOptionPane.YES_NO_OPTION);
-                    if(valor == JOptionPane.YES_OPTION){
-                        salirDirecto = false;
-                        carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
-                        carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
-                        mostrarimg();
-                        h = new HiloEncuentro(this, carro, carro1);
-                        h.start();
-                    }
-                    else{
-                        botonesFinal();
-                        return;
-                    }
-                }
-                else {
-                    salirDirecto = false;
-                    carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
-                    carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
-                    mostrarimg();
-                    h = new HiloEncuentro(this, carro, carro1);
-                    h.start();
-                }
-            }
-        } catch (Exception e) {
-            botonesFinal();
-            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos o valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
-        } 
+        iniciar();
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnPausarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausarActionPerformed
@@ -599,9 +603,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
-        salirDirecto = true;
         limpiar();
-        c.eliminar();
     }//GEN-LAST:event_btnCleanActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

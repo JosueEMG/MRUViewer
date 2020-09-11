@@ -73,9 +73,11 @@ public class frmMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MRUVProject");
         setBackground(new java.awt.Color(51, 51, 51));
+        setMaximumSize(new java.awt.Dimension(535, 390));
+        setMinimumSize(new java.awt.Dimension(535, 390));
         setPreferredSize(new java.awt.Dimension(535, 390));
         setResizable(false);
-        setSize(new java.awt.Dimension(600, 400));
+        setSize(new java.awt.Dimension(535, 390));
 
         menu.setBackground(new java.awt.Color(255, 255, 255));
         menu.setLayout(null);
@@ -95,7 +97,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Version: 0.4.8");
+        jLabel3.setText("Version: 0.4.9");
         menu.add(jLabel3);
         jLabel3.setBounds(440, 330, 83, 20);
 

@@ -6,12 +6,15 @@
 
 package controlador;
 import java.util.*;
+import javax.swing.JOptionPane;
 import modelo.CocheEncuentro;
+import vista.frmCarroEncuentro;
 /**
  * 
  * @author Josue Emmanuel Medina Garcia
  */
 public class CocheEncuentroController {
+    public frmCarroEncuentro frm;
     List<CocheEncuentro> list = new ArrayList();
 
     public CocheEncuentroController() {
@@ -25,9 +28,19 @@ public class CocheEncuentroController {
         return list;
     }
     
+    public boolean encontrar() {
+        if(list == null || list.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+    
     public void eliminar() {
-        for (CocheEncuentro cocheEncuentro : listado()) {
-            list.remove(cocheEncuentro);
+        if(encontrar()) {
+            list.clear();
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "No hay datos registrados en las tablas", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         }
     }
 }
