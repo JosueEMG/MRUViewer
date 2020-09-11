@@ -95,9 +95,9 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Version: 0.4.6");
+        jLabel3.setText("Version: 0.4.7");
         menu.add(jLabel3);
-        jLabel3.setBounds(440, 330, 90, 20);
+        jLabel3.setBounds(440, 330, 83, 20);
 
         continerBtnTe.setBackground(new java.awt.Color(51, 51, 51));
         continerBtnTe.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(102, 102, 102)));

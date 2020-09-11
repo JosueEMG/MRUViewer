@@ -149,6 +149,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MRUVProject");
+        setMaximumSize(new java.awt.Dimension(1300, 750));
         setMinimumSize(new java.awt.Dimension(1300, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -186,13 +187,13 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Tiempo de encuentro: ");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(310, 650, 154, 22);
+        jLabel13.setBounds(310, 660, 154, 22);
 
         tiempoEncuentro.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         tiempoEncuentro.setForeground(new java.awt.Color(255, 255, 255));
         tiempoEncuentro.setText("Inicie la simulacion para ver resultados");
         jPanel5.add(tiempoEncuentro);
-        tiempoEncuentro.setBounds(470, 650, 268, 22);
+        tiempoEncuentro.setBounds(470, 660, 268, 22);
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -204,7 +205,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Controles");
         jPanel5.add(jLabel15);
-        jLabel15.setBounds(1115, 19, 81, 25);
+        jLabel15.setBounds(1115, 10, 81, 25);
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)), "Botones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -263,7 +264,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel10.setBounds(20, 150, 80, 22);
 
         jPanel5.add(jPanel4);
-        jPanel4.setBounds(1045, 240, 235, 230);
+        jPanel4.setBounds(1048, 240, 235, 230);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Yu Gothic UI", 1, 16), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -345,7 +346,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel6.setBounds(130, 150, 20, 22);
 
         jPanel5.add(jPanel2);
-        jPanel2.setBounds(1045, 40, 235, 200);
+        jPanel2.setBounds(1048, 35, 235, 200);
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 0, 0)));
@@ -406,6 +407,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         ));
         tabla.setGridColor(new java.awt.Color(0, 0, 0));
         tabla.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        tabla.getTableHeader().setResizingAllowed(false);
         tabla.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla);
 
@@ -435,6 +437,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         ));
         tabla1.setGridColor(new java.awt.Color(0, 0, 0));
         tabla1.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        tabla1.getTableHeader().setResizingAllowed(false);
         tabla1.getTableHeader().setReorderingAllowed(false);
         jScrollPane4.setViewportView(tabla1);
 
