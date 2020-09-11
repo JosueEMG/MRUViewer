@@ -24,4 +24,10 @@ public class CocheEncuentroController {
     public List<CocheEncuentro> listado() {
         return list;
     }
+    
+    public void eliminar() {
+        for (CocheEncuentro cocheEncuentro : listado()) {
+            list.remove(cocheEncuentro);
+        }
+    }
 }

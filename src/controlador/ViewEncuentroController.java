@@ -22,6 +22,7 @@ public class ViewEncuentroController implements MouseListener{
     
     public final void events() {
         menu.getBtnVolver().addMouseListener(this);
+        menu.getBtnClean().addMouseListener(this);
     }
 
     public ViewEncuentroController(frmCarroEncuentro menu) {
@@ -51,7 +52,10 @@ public class ViewEncuentroController implements MouseListener{
         Object evt = me.getSource();
         
         if(evt.equals(menu.getBtnVolver())) {
-            changeBackground(menu.continerBtnBack, new Color(80, 150, 80));
+            changeBackground(menu.continerBtnBack, new Color(100, 220, 150));
+        }
+        else if(evt.equals(menu.getBtnClean())){
+            changeBackground(menu.continerBtnClean, new Color(220, 220, 150));
         }
     }
 
@@ -61,7 +65,10 @@ public class ViewEncuentroController implements MouseListener{
         Object evt = me.getSource();
         
         if(evt.equals(menu.getBtnVolver())) {
-            changeBackground(menu.continerBtnBack, new Color(51, 150, 51));
+            changeBackground(menu.continerBtnBack, new Color(51, 220, 51));
+        }
+        else if(evt.equals(menu.getBtnClean())){
+            changeBackground(menu.continerBtnClean, new Color(220, 220, 51));
         }
     }
     

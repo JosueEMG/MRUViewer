@@ -23,6 +23,9 @@ import controlador.ViewEncuentroController;
 public class frmCarroEncuentro extends javax.swing.JFrame {
     
     public ViewEncuentroController controller;
+    public DefaultTableModel dt;
+    public DefaultTableModel dt1;
+    public boolean salirDirecto = true;
     public static HiloEncuentro h;
     CocheEncuentroController c = new CocheEncuentroController();
     
@@ -57,11 +60,36 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }
     
     public void confirmar() {
-        int valor = JOptionPane.showConfirmDialog(this, "Se eliminaran todos los datos registrados. \n¿Está seguro de volver a la ventana pricipal?", "Advertencia", JOptionPane.YES_NO_OPTION);
-        if(valor == JOptionPane.YES_OPTION){
+        if(salirDirecto){
             this.setVisible(false);
             frmMenu menu = new frmMenu();
             menu.setVisible(true);
+        }
+        else{
+            int valor = JOptionPane.showConfirmDialog(this, "Se eliminaran todos los datos registrados. \n¿Está seguro(a) de volver a la ventana pricipal?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if(valor == JOptionPane.YES_OPTION){
+                this.setVisible(false);
+                frmMenu menu = new frmMenu();
+                menu.setVisible(true);
+            }
+        }
+    }
+    
+    public void limpiar() {
+        try {
+            int valor = JOptionPane.showConfirmDialog(this, "Se eliminaran todos los datos registrados. \n¿Está seguro(a) de realizar esta acción?", "Advertencia", JOptionPane.YES_NO_OPTION);
+            if(valor == JOptionPane.YES_OPTION){
+                txtAce.setText("");
+                txtAce1.setText("");
+                txtPos.setText("");
+                txtPos1.setText("");
+                txtVel.setText("");
+                txtVel1.setText("");
+                dt.setRowCount(0);
+                dt1.setRowCount(0);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No hay datos registrados en la tabla", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -82,8 +110,8 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }
     
     public void listar() {
-        DefaultTableModel dt = (DefaultTableModel)tabla.getModel();
-        DefaultTableModel dt1 = (DefaultTableModel)tabla1.getModel();
+        dt = (DefaultTableModel)tabla.getModel();
+        dt1 = (DefaultTableModel)tabla1.getModel();
         dt.setRowCount(0);
         dt1.setRowCount(0);
         for (CocheEncuentro c : c.listado()) {
@@ -146,10 +174,12 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         continerBtnBack = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
+        continerBtnClean = new javax.swing.JPanel();
+        btnClean = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MRUVProject");
-        setMaximumSize(new java.awt.Dimension(1300, 750));
         setMinimumSize(new java.awt.Dimension(1300, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -181,19 +211,19 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Datos coche 1");
         jPanel5.add(jLabel9);
-        jLabel9.setBounds(70, 490, 120, 25);
+        jLabel9.setBounds(80, 490, 120, 25);
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Tiempo de encuentro: ");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(310, 660, 154, 22);
+        jLabel13.setBounds(290, 660, 154, 22);
 
         tiempoEncuentro.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         tiempoEncuentro.setForeground(new java.awt.Color(255, 255, 255));
         tiempoEncuentro.setText("Inicie la simulacion para ver resultados");
         jPanel5.add(tiempoEncuentro);
-        tiempoEncuentro.setBounds(470, 660, 268, 22);
+        tiempoEncuentro.setBounds(460, 660, 268, 22);
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -391,15 +421,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         tabla.setForeground(new java.awt.Color(255, 255, 255));
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Xf", "Vf", "A"
@@ -412,7 +434,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tabla);
 
         jPanel5.add(jScrollPane3);
-        jScrollPane3.setBounds(10, 520, 240, 180);
+        jScrollPane3.setBounds(20, 520, 240, 180);
 
         jScrollPane4.setForeground(new java.awt.Color(51, 51, 51));
 
@@ -421,15 +443,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         tabla1.setForeground(new java.awt.Color(255, 255, 255));
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Xf", "Vf", "A"
@@ -444,14 +458,14 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jPanel5.add(jScrollPane4);
         jScrollPane4.setBounds(760, 520, 240, 180);
 
-        continerBtnBack.setBackground(new java.awt.Color(51, 150, 51));
+        continerBtnBack.setBackground(new java.awt.Color(51, 220, 51));
         continerBtnBack.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
         continerBtnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         continerBtnBack.setPreferredSize(new java.awt.Dimension(150, 40));
         continerBtnBack.setLayout(new java.awt.BorderLayout());
 
         btnVolver.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
-        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setForeground(new java.awt.Color(0, 0, 0));
         btnVolver.setMnemonic('v');
         btnVolver.setText("Volver");
         btnVolver.setContentAreaFilled(false);
@@ -465,13 +479,43 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         continerBtnBack.add(btnVolver, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(continerBtnBack);
-        continerBtnBack.setBounds(1055, 580, 160, 50);
+        continerBtnBack.setBounds(1055, 610, 160, 50);
 
         jLabel19.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel19.setText("(Atl + V)");
+        jLabel19.setText("(Atl + L)");
         jPanel5.add(jLabel19);
-        jLabel19.setBounds(1220, 590, 60, 22);
+        jLabel19.setBounds(1220, 550, 60, 22);
+
+        continerBtnClean.setBackground(new java.awt.Color(220, 220, 51));
+        continerBtnClean.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
+        continerBtnClean.setForeground(new java.awt.Color(255, 255, 255));
+        continerBtnClean.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        continerBtnClean.setPreferredSize(new java.awt.Dimension(150, 40));
+        continerBtnClean.setLayout(new java.awt.BorderLayout());
+
+        btnClean.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
+        btnClean.setForeground(new java.awt.Color(0, 0, 0));
+        btnClean.setMnemonic('l');
+        btnClean.setText("Limpiar");
+        btnClean.setContentAreaFilled(false);
+        btnClean.setMaximumSize(new java.awt.Dimension(177, 37));
+        btnClean.setMinimumSize(new java.awt.Dimension(177, 37));
+        btnClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCleanActionPerformed(evt);
+            }
+        });
+        continerBtnClean.add(btnClean, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(continerBtnClean);
+        continerBtnClean.setBounds(1055, 540, 160, 50);
+
+        jLabel20.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel20.setText("(Atl + V)");
+        jPanel5.add(jLabel20);
+        jLabel20.setBounds(1220, 620, 60, 22);
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
@@ -505,6 +549,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
                 if (Integer.parseInt(txtPos1.getText()) > 1030 || Integer.parseInt(txtPos.getText()) <= 0) {
                     int valor = JOptionPane.showConfirmDialog(this, "Uno o dos coches aparecerán fuera de la pantalla. \n¿Está seguro de continuar con la animación?", "Advertencia", JOptionPane.YES_NO_OPTION);
                     if(valor == JOptionPane.YES_OPTION){
+                        salirDirecto = false;
                         carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
                         carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
                         mostrarimg();
@@ -517,6 +562,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
                     }
                 }
                 else {
+                    salirDirecto = false;
                     carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
                     carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
                     mostrarimg();
@@ -552,7 +598,14 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         confirmar();
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
+        salirDirecto = true;
+        limpiar();
+        c.eliminar();
+    }//GEN-LAST:event_btnCleanActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClean;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnParar;
     private javax.swing.JButton btnPausar;
@@ -562,6 +615,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     private javax.swing.JLabel carro1;
     private javax.swing.JComboBox<String> cbVelocidad;
     public javax.swing.JPanel continerBtnBack;
+    public javax.swing.JPanel continerBtnClean;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -575,6 +629,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -670,6 +725,14 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
     public void setBtnVolver(javax.swing.JButton btnVolver) {
         this.btnVolver = btnVolver;
+    }
+
+    public javax.swing.JButton getBtnClean() {
+        return btnClean;
+    }
+
+    public void setBtnClean(javax.swing.JButton btnClean) {
+        this.btnClean = btnClean;
     }
 
 
