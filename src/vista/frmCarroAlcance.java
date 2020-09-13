@@ -140,7 +140,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         dt1.setRowCount(0);
         for (CocheAlcance c : c.listado()) {
             Object v[] = {Math.round(c.posicion()*100.0)/100.0,Math.round(c.velocidad()*100.0)/100.0,Math.round(c.getA()*100.0)/100.0};
-            Object v1[] = {Math.round(c.posicion1()*100.0)/100.0,Math.round(c.velocidad1()*100.0)/100.0*-1,Math.round(c.getA1()*100.0)/100.0};
+            Object v1[] = {Math.round(c.posicion()*100.0)/100.0,Math.round(c.velocidad1()*100.0)/100.0,Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
             dt1.addRow(v1);
             tiempoEncuentro.setText(""+Math.round(c.tiempoAlcance()*100.0)/100.0+" Segundos");
@@ -289,9 +289,9 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Tiempo de encuentro");
+        jLabel14.setText("Tiempo de alcance");
         jPanel5.add(jLabel14);
-        jLabel14.setBounds(490, 10, 233, 32);
+        jLabel14.setBounds(500, 10, 203, 32);
 
         jLabel15.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));

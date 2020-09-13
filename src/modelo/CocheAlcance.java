@@ -97,6 +97,6 @@ public class CocheAlcance {
     }
     
     public double velocidad1() {
-        return (v1 + a1*tiempoAlcance())*-1;
+        return v1 + a1*tiempoAlcance();
     }
 }

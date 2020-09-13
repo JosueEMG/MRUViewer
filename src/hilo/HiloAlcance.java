@@ -65,7 +65,6 @@ public class HiloAlcance extends Thread{
                         }
                     }
                 }
-                
                 if(x >= x1-100) {
                     estado = false;
                 }
