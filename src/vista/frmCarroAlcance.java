@@ -8,30 +8,30 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
-import modelo.CocheEncuentro;
-import controlador.CocheEncuentroController;
+import modelo.CocheAlcance;
+import controlador.CocheAlcanceController;
 import javax.swing.JOptionPane;
-import hilo.HiloEncuentro;
+import hilo.HiloAlcance;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
-import controlador.ViewEncuentroController;
+import controlador.ViewAlcanceController;
 /**
  *
  * @author Josue Emmanuel Medina Garcia
  */
-public class frmCarroEncuentro extends javax.swing.JFrame {
+public class frmCarroAlcance extends javax.swing.JFrame {
     
-    public ViewEncuentroController controller;
+    public ViewAlcanceController controller;
     public DefaultTableModel dt;
     public DefaultTableModel dt1;
     public boolean salirDirecto = true;
-    public static HiloEncuentro h;
-    CocheEncuentroController c = new CocheEncuentroController();
+    public static HiloAlcance h;
+    CocheAlcanceController c = new CocheAlcanceController();
     
-    public frmCarroEncuentro() {
+    public frmCarroAlcance() {
         initComponents();
-        controller = new ViewEncuentroController(this);
+        controller = new ViewAlcanceController(this);
         try {
             setIconImage(new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png")).getImage());            
         } catch (Exception e) {
@@ -44,7 +44,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         cerrar(); 
     }
     
-    public void añadir(CocheEncuentro e) {
+    public void añadir(CocheAlcance e) {
         c.añadir(e);
     }
     
@@ -99,7 +99,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
         carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
         mostrarImg();
-        h = new HiloEncuentro(this, carro, carro1);
+        h = new HiloAlcance(this, carro, carro1);
         h.start();
     }
     
@@ -107,6 +107,9 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         try {
             if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
                 JOptionPane.showMessageDialog(null, "Debe ingresar aceleracion mayor a 0 o velocidad positiva", "Advertencia", JOptionPane.OK_OPTION);
+            }
+            else if(Double.parseDouble(txtAce1.getText()) >= Double.parseDouble(txtAce.getText())){
+                JOptionPane.showMessageDialog(null, "La aceleración del coche 2 tiene que ser menor a la del coche 1", "Advertencia", JOptionPane.OK_OPTION);
             }
             else{
                 botonesInicio();
@@ -135,12 +138,12 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         dt1 = (DefaultTableModel)tabla1.getModel();
         dt.setRowCount(0);
         dt1.setRowCount(0);
-        for (CocheEncuentro c : c.listado()) {
+        for (CocheAlcance c : c.listado()) {
             Object v[] = {Math.round(c.posicion()*100.0)/100.0,Math.round(c.velocidad()*100.0)/100.0,Math.round(c.getA()*100.0)/100.0};
             Object v1[] = {Math.round(c.posicion1()*100.0)/100.0,Math.round(c.velocidad1()*100.0)/100.0*-1,Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
             dt1.addRow(v1);
-            tiempoEncuentro.setText(""+Math.round(c.tiempoEncuentro()*100.0)/100.0+" Segundos");
+            tiempoEncuentro.setText(""+Math.round(c.tiempoAlcance()*100.0)/100.0+" Segundos");
         }  
     }
     
@@ -150,12 +153,12 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             salirDirecto = true;
             txtAce.setText("");
             txtAce1.setText("");
-            txtPos.setText("100");
-            txtPos1.setText("900");
+            txtPos.setText("");
+            txtPos1.setText("");
             txtVel.setText("");
             txtVel1.setText("");
             carro.setLocation(0, 310);
-            carro1.setLocation(900, 310);
+            carro1.setLocation(300, 310);
             c.eliminar();
             try {
                 dt.setRowCount(0);
@@ -169,7 +172,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         ImageIcon img = new ImageIcon(getClass().getResource("/imagenes/camioneta_r.png"));
         Image imgesc = img.getImage().getScaledInstance(carro.getWidth(), carro.getHeight(), Image.SCALE_SMOOTH);
         carro.setIcon(new ImageIcon(imgesc));
-        ImageIcon img1 = new ImageIcon(getClass().getResource("/imagenes/coche_l.png"));
+        ImageIcon img1 = new ImageIcon(getClass().getResource("/imagenes/coche_r.png"));
         Image imgesc1 = img1.getImage().getScaledInstance(carro1.getWidth(), carro1.getHeight(), Image.SCALE_SMOOTH);
         carro1.setIcon(new ImageIcon(imgesc1));
         ImageIcon img2 = new ImageIcon(getClass().getResource("/imagenes/fondopanelMRUVProject.png"));
@@ -252,7 +255,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         carro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/coche_l.png"))); // NOI18N
         jPanel1.add(carro1);
-        carro1.setBounds(900, 310, 100, 100);
+        carro1.setBounds(300, 310, 100, 100);
 
         carro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/camioneta_r.png"))); // NOI18N
         carro.setToolTipText("");
@@ -274,15 +277,15 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Tiempo de encuentro: ");
+        jLabel13.setText("Tiempo de alcance: ");
         jPanel5.add(jLabel13);
-        jLabel13.setBounds(290, 660, 154, 22);
+        jLabel13.setBounds(310, 660, 135, 22);
 
         tiempoEncuentro.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         tiempoEncuentro.setForeground(new java.awt.Color(255, 255, 255));
         tiempoEncuentro.setText("Inicie la simulacion para ver resultados");
         jPanel5.add(tiempoEncuentro);
-        tiempoEncuentro.setBounds(460, 660, 268, 22);
+        tiempoEncuentro.setBounds(450, 660, 268, 22);
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -404,7 +407,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel11.setBounds(130, 30, 60, 22);
 
         txtPos1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
-        txtPos1.setText("900");
+        txtPos1.setText("300");
         jPanel2.add(txtPos1);
         txtPos1.setBounds(150, 70, 61, 28);
 

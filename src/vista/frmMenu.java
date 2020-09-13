@@ -97,7 +97,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Version: 0.4.9");
+        jLabel3.setText("Version: 1.0.0");
         menu.add(jLabel3);
         jLabel3.setBounds(440, 330, 83, 20);
 
@@ -214,7 +214,9 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnAlcanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlcanceActionPerformed
-        // TODO add your handling code here:
+        frmCarroAlcance frm = new frmCarroAlcance();
+        frm.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnAlcanceActionPerformed
 
     /**
