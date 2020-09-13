@@ -16,6 +16,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import controlador.ViewAlcanceController;
+import java.awt.Toolkit;
 /**
  *
  * @author Josue Emmanuel Medina Garcia
@@ -105,11 +106,14 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     
     public void iniciar() {
         try {
-            if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
+            if(Integer.parseInt(txtPos.getText()) > Integer.parseInt(txtPos1.getText())) {
+                JOptionPane.showMessageDialog(null, "La posicion del coche 1 tiene que ser menor al del coche 2", "Advertencia", JOptionPane.OK_OPTION);
+            }
+            else if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
                 JOptionPane.showMessageDialog(null, "Debe ingresar aceleracion mayor a 0 o velocidad positiva", "Advertencia", JOptionPane.OK_OPTION);
             }
             else if(Double.parseDouble(txtAce1.getText()) >= Double.parseDouble(txtAce.getText())){
-                JOptionPane.showMessageDialog(null, "La aceleración del coche 2 tiene que ser menor a la del coche 1", "Advertencia", JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(null, "La aceleración del coche 1 tiene que ser mayor a la del coche 2", "Advertencia", JOptionPane.OK_OPTION);
             }
             else{
                 botonesInicio();
@@ -129,7 +133,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             botonesFinal();
-            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos o valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los caJOptionPanempos \no tambien ingrese valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         } 
     }
     
@@ -377,10 +381,20 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
         txtPos.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtPos.setText("100");
+        txtPos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPosKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtPos);
         txtPos.setBounds(40, 70, 61, 28);
 
         txtVel.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtVel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVelKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtVel);
         txtVel.setBounds(40, 110, 61, 28);
 
@@ -391,6 +405,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         jLabel2.setBounds(20, 110, 20, 22);
 
         txtAce.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtAce.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAceKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtAce);
         txtAce.setBounds(40, 150, 61, 28);
 
@@ -408,6 +427,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
         txtPos1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         txtPos1.setText("300");
+        txtPos1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPos1KeyTyped(evt);
+            }
+        });
         jPanel2.add(txtPos1);
         txtPos1.setBounds(150, 70, 61, 28);
 
@@ -424,10 +448,20 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         jLabel5.setBounds(130, 110, 20, 22);
 
         txtVel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtVel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVel1KeyTyped(evt);
+            }
+        });
         jPanel2.add(txtVel1);
         txtVel1.setBounds(150, 110, 61, 28);
 
         txtAce1.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
+        txtAce1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAce1KeyTyped(evt);
+            }
+        });
         jPanel2.add(txtAce1);
         txtAce1.setBounds(150, 150, 61, 28);
 
@@ -613,6 +647,48 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
         limpiar();
     }//GEN-LAST:event_btnCleanActionPerformed
+
+    private void txtPosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPosKeyTyped
+        if(txtPos.getText().length() >= 6) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPosKeyTyped
+
+    private void txtPos1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPos1KeyTyped
+        if(txtPos1.getText().length() >= 6) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtPos1KeyTyped
+
+    private void txtVelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVelKeyTyped
+        if(txtVel.getText().length() >= 3) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtVelKeyTyped
+
+    private void txtVel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVel1KeyTyped
+        if(txtVel1.getText().length() >= 3) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtVel1KeyTyped
+
+    private void txtAceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAceKeyTyped
+        if(txtAce.getText().length() >= 3) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtAceKeyTyped
+
+    private void txtAce1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAce1KeyTyped
+        if(txtAce1.getText().length() >= 3) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+    }//GEN-LAST:event_txtAce1KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClean;
