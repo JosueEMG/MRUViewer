@@ -153,8 +153,8 @@ public class frmCarroAlcance extends javax.swing.JFrame {
             salirDirecto = true;
             txtAce.setText("");
             txtAce1.setText("");
-            txtPos.setText("");
-            txtPos1.setText("");
+            txtPos.setText("0");
+            txtPos1.setText("300");
             txtVel.setText("");
             txtVel1.setText("");
             carro.setLocation(0, 310);
