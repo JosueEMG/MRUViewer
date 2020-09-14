@@ -130,7 +130,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             botonesFinal();
-            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los caJOptionPanempos \no tambien ingrese valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos \no tambien ingrese valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         } 
     }
     
