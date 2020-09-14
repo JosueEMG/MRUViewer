@@ -646,42 +646,72 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCleanActionPerformed
 
     private void txtPosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPosKeyTyped
-        if(txtPos.getText().length() >= 6) {
+        char letra = evt.getKeyChar();
+        if(Character.isLetter(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        else if(txtPos.getText().length() >= 6) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtPosKeyTyped
 
     private void txtPos1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPos1KeyTyped
-        if(txtPos1.getText().length() >= 6) {
+        char letra = evt.getKeyChar();
+        if(Character.isLetter(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        else if(txtPos1.getText().length() >= 6) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtPos1KeyTyped
 
     private void txtVelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVelKeyTyped
-        if(txtVel.getText().length() >= 3) {
+        char letra = evt.getKeyChar();
+        if(Character.isLetter(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        else if(txtVel.getText().length() >= 3) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtVelKeyTyped
 
     private void txtVel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVel1KeyTyped
-        if(txtVel1.getText().length() >= 3) {
+        char letra = evt.getKeyChar();
+        if(Character.isLetter(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        else if(txtVel1.getText().length() >= 3) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtVel1KeyTyped
 
     private void txtAceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAceKeyTyped
-        if(txtAce.getText().length() >= 3) {
+        char letra = evt.getKeyChar();
+        if(Character.isLetter(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        else if(txtAce.getText().length() >= 3) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
     }//GEN-LAST:event_txtAceKeyTyped
 
     private void txtAce1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAce1KeyTyped
-        if(txtAce1.getText().length() >= 3) {
+        char letra = evt.getKeyChar();
+        if(Character.isLetter(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
+        else if(txtAce1.getText().length() >= 3) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
