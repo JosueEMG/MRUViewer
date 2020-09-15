@@ -23,11 +23,11 @@ import java.awt.Toolkit;
  */
 public class frmCarroEncuentro extends javax.swing.JFrame {
     
-    public ViewEncuentroController controller;
-    public DefaultTableModel dt;
-    public DefaultTableModel dt1;
-    public boolean salirDirecto = true;
-    public static HiloEncuentro h;
+    ViewEncuentroController controller;
+    DefaultTableModel dt;
+    DefaultTableModel dt1;
+    boolean salirDirecto = true;
+    static HiloEncuentro h;
     CocheEncuentroController c = new CocheEncuentroController();
     
     public frmCarroEncuentro() {
@@ -49,7 +49,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         c.añadir(e);
     }
     
-    public void botonesInicio() {
+    void botonesInicio() {
         btnParar.setEnabled(true);
         btnPausar.setEnabled(true);
         btnIniciar.setEnabled(false);
@@ -62,7 +62,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         btnIniciar.setEnabled(true);
     }
     
-    public void cerrar() {
+    void cerrar() {
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
@@ -76,7 +76,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         }
     }
     
-    public void confirmar() {
+    void confirmar() {
         if(salirDirecto){
             this.setVisible(false);
             frmMenu menu = new frmMenu();
@@ -95,7 +95,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         }
     }
     
-    public void frameInicial() {
+    void frameInicial() {
         salirDirecto = false;
         carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
         carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
@@ -104,7 +104,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         h.start();
     }
     
-    public void iniciar() {
+    void iniciar() {
         try {
             if(Integer.parseInt(txtPos.getText()) > Integer.parseInt(txtPos1.getText())) {
                 JOptionPane.showMessageDialog(null, "La posicion del coche 1 tiene que ser menor al del coche 2", "Advertencia", JOptionPane.OK_OPTION);
@@ -148,7 +148,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         }  
     }
     
-    public void limpiar() {
+    void limpiar() {
         int valor = JOptionPane.showConfirmDialog(this, "Se eliminaran todos los datos registrados. \n¿Está seguro(a) de realizar esta acción?", "Advertencia", JOptionPane.YES_NO_OPTION);
         if(valor == JOptionPane.YES_OPTION){
             salirDirecto = true;

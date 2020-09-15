@@ -32,7 +32,7 @@ public class frmMenu extends javax.swing.JFrame {
         
     }
 
-    public void cerrar() {
+    void cerrar() {
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
             addWindowListener(new WindowAdapter() {
@@ -46,7 +46,7 @@ public class frmMenu extends javax.swing.JFrame {
         }
     }
     
-    public void confirmarSalida() {
+    void confirmarSalida() {
         int valor = JOptionPane.showConfirmDialog(this, "¿Está seguro(a) de salir de la aplicación?", "Advertencia", JOptionPane.YES_NO_OPTION);
         if(valor == JOptionPane.YES_OPTION){
             System.exit(0);
@@ -97,7 +97,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Version: 1.0.3");
+        jLabel3.setText("Version: 1.0.4");
         menu.add(jLabel3);
         jLabel3.setBounds(440, 330, 83, 20);
 
