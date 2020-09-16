@@ -123,7 +123,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         contenido += "Xf\tVf\ta\n";
         
         for (CocheAlcance c : c.listado()) {
-            contenido += Double.toString(Math.round(c.posicion()*100.0)/100.0 - 100) +"\t"+ Double.toString(Math.round(c.velocidad()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.getA()*100.0)/100.0) + "\n";
+            contenido += Double.toString(Math.round(c.posicion()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.velocidad()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.getA()*100.0)/100.0) + "\n";
         }
         
         contenido += "=======================\n";
@@ -133,7 +133,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         contenido += "Xf\tVf\ta\n";
         
         for (CocheAlcance c : c.listado()) {
-            contenido += Double.toString(Math.round(c.posicion1()*100.0)/100.0 - 100) +"\t"+ Double.toString(Math.round(c.velocidad1()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.getA1()*100.0)/100.) + "\n";
+            contenido += Double.toString(Math.round(c.posicion1()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.velocidad1()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.getA1()*100.0)/100.) + "\n";
         }
         
         contenido += "=======================\n";
@@ -183,8 +183,8 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         dt.setRowCount(0);
         dt1.setRowCount(0);
         for (CocheAlcance c : c.listado()) {
-            Object v[] = {Math.round(c.posicion()*100.0)/100.0 - 100,Math.round(c.velocidad()*100.0)/100.0,Math.round(c.getA()*100.0)/100.0};
-            Object v1[] = {Math.round(c.posicion()*100.0)/100.0 - 100,Math.round(c.velocidad1()*100.0)/100.0,Math.round(c.getA1()*100.0)/100.0};
+            Object v[] = {Math.round(c.posicion()*100.0)/100.0, Math.round(c.velocidad()*100.0)/100.0, Math.round(c.getA()*100.0)/100.0};
+            Object v1[] = {Math.round(c.posicion()*100.0)/100.0, Math.round(c.velocidad1()*100.0)/100.0, Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
             dt1.addRow(v1);
             tiempoAlcance.setText(""+Math.round(c.tiempoAlcance()*100.0)/100.0+" Segundos");

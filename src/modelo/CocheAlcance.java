@@ -81,7 +81,7 @@ public class CocheAlcance {
     }
     
     public double tiempoAlcance() {
-        return (-1*(v-v1)+Math.sqrt(((v-v1)*(v+v1))-(2*((a-a1)*(x-x1)))))/(a-a1);
+        return (-1*(v-v1)+Math.sqrt((Math.pow((v-v1), 2)-(2*((a-a1)*(x-x1))))))/(a-a1);
     }
     
     public double posicion() {

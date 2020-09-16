@@ -71,7 +71,7 @@ public class HiloAlcance extends Thread{
             }
             frm.botonesFinal();
             JOptionPane.showMessageDialog(null, "Los coches chocaron :(");
-            CocheAlcance coche = new CocheAlcance(Double.parseDouble(frm.getTxtPos().getText())-100,Double.parseDouble(frm.getTxtPos1().getText()), Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtVel1().getText()), Double.parseDouble(frm.getTxtAce().getText()), Double.parseDouble(frm.getTxtAce1().getText()));
+            CocheAlcance coche = new CocheAlcance(Double.parseDouble(frm.getTxtPos().getText()),Double.parseDouble(frm.getTxtPos1().getText()), Double.parseDouble(frm.getTxtVel().getText()), Double.parseDouble(frm.getTxtVel1().getText()), Double.parseDouble(frm.getTxtAce().getText()), Double.parseDouble(frm.getTxtAce1().getText()));
             frm.añadir(coche);
             frm.listar();
             } catch (Exception e) {

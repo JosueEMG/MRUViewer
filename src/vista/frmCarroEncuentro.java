@@ -107,7 +107,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
         carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
         mostrarImg();
-        h = new HiloEncuentro(this, carro, carro1);
+        h = new HiloEncuentro(this, carro, carro1, txtVel, txtVel1);
         h.start();
     }
     
@@ -180,8 +180,8 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         dt.setRowCount(0);
         dt1.setRowCount(0);
         for (CocheEncuentro c : c.listado()) {
-            Object v[] = {Math.round(c.posicion()*100.0)/100.0,Math.round(c.velocidad()*100.0)/100.0,Math.round(c.getA()*100.0)/100.0};
-            Object v1[] = {Math.round(c.posicion1()*100.0)/100.0,Math.round(c.velocidad1()*100.0)/100.0*-1,Math.round(c.getA1()*100.0)/100.0};
+            Object v[] = {Math.round(c.posicion()*100.0)/100.0, Math.round(c.velocidad()*100.0)/100.0, Math.round(c.getA()*100.0)/100.0};
+            Object v1[] = {Math.round(c.posicion1()*100.0)/100.0, Math.round(c.velocidad1()*100.0)/100.0*-1, Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
             dt1.addRow(v1);
             tiempoEncuentro.setText(""+Math.round(c.tiempoEncuentro()*100.0)/100.0+" Segundos");
@@ -222,7 +222,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     }
     
     public int velocidad() {
-        int vec[] = {15, 35, 5};
+        int vec[] = {15, 45};
         return vec[cbVelocidad.getSelectedIndex()];
     }
 
@@ -389,7 +389,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         btnParar.setBounds(120, 90, 100, 50);
 
         cbVelocidad.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
-        cbVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Rapido" }));
+        cbVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento" }));
         jPanel4.add(cbVelocidad);
         cbVelocidad.setBounds(20, 180, 200, 32);
 

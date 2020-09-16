@@ -81,15 +81,15 @@ public class CocheEncuentro {
     }
     
     public double tiempoEncuentro() {
-        return (-1*(v+v1)+Math.sqrt(((v+v1)*(v+v1))-(2*((a+a1)*(x-x1)))))/(a+a1);
+        return (-1*(v+v1)+Math.sqrt((Math.pow((v+v1), 2)-(2*((a+a1)*(x-x1))))))/(a+a1);
     }
     
     public double posicion() {
-        return x + v*tiempoEncuentro() + (a*tiempoEncuentro()*tiempoEncuentro())/2;
+        return x + v*tiempoEncuentro() + (a*Math.pow(tiempoEncuentro(), 2))/2;
     }
     
     public double posicion1() {
-        return x1 - v1*tiempoEncuentro() - (a1*tiempoEncuentro()*tiempoEncuentro())/2;
+        return x1 - v1*tiempoEncuentro() - (a1*Math.pow(tiempoEncuentro(), 2))/2;
     }
     
     public double velocidad() {
