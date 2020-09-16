@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import modelo.CocheAlcance;
 import controlador.CocheAlcanceController;
+import controlador.SaveTextController;
 import javax.swing.JOptionPane;
 import hilo.HiloAlcance;
 import java.awt.event.WindowAdapter;
@@ -17,6 +18,8 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import controlador.ViewAlcanceController;
 import java.awt.Toolkit;
+import java.io.File;
+import javax.swing.JFileChooser;
 /**
  *
  * @author Josue Emmanuel Medina Garcia
@@ -24,6 +27,10 @@ import java.awt.Toolkit;
 public class frmCarroAlcance extends javax.swing.JFrame {
     
     ViewAlcanceController controller;
+    SaveTextController saveText;
+    JFileChooser select = new JFileChooser();
+    File archivo;
+    byte[] bytes;
     DefaultTableModel dt;
     DefaultTableModel dt1;
     boolean salirDirecto = true;
@@ -104,6 +111,39 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         h.start();
     }
     
+    public String guardarTexto() {
+        
+        String contenido = "";
+        contenido += "=======================\n";
+        contenido += "Tiempo de alcance\n";
+        contenido += "=======================\n";
+        contenido += "\n";
+        contenido += "Datos del coche 1: \n";
+        contenido += "\n";
+        contenido += "Xf\tVf\ta\n";
+        
+        for (CocheAlcance c : c.listado()) {
+            contenido += Double.toString(Math.round(c.posicion()*100.0)/100.0 - 100) +"\t"+ Double.toString(Math.round(c.velocidad()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.getA()*100.0)/100.0) + "\n";
+        }
+        
+        contenido += "=======================\n";
+        contenido += "\n";
+        contenido += "Datos del coche 2: \n";
+        contenido += "\n";
+        contenido += "Xf\tVf\ta\n";
+        
+        for (CocheAlcance c : c.listado()) {
+            contenido += Double.toString(Math.round(c.posicion1()*100.0)/100.0 - 100) +"\t"+ Double.toString(Math.round(c.velocidad1()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.getA1()*100.0)/100.) + "\n";
+        }
+        
+        contenido += "=======================\n";
+        contenido += "\n";
+        contenido += "Tiempo de alcance: ";
+        contenido += tiempoAlcance.getText();;
+        
+        return contenido;
+    }
+    
     void iniciar() {
         try {
             if(Integer.parseInt(txtPos.getText()) > Integer.parseInt(txtPos1.getText())) {
@@ -143,11 +183,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         dt.setRowCount(0);
         dt1.setRowCount(0);
         for (CocheAlcance c : c.listado()) {
-            Object v[] = {Math.round(c.posicion()*100.0)/100.0,Math.round(c.velocidad()*100.0)/100.0,Math.round(c.getA()*100.0)/100.0};
-            Object v1[] = {Math.round(c.posicion()*100.0)/100.0,Math.round(c.velocidad1()*100.0)/100.0,Math.round(c.getA1()*100.0)/100.0};
+            Object v[] = {Math.round(c.posicion()*100.0)/100.0 - 100,Math.round(c.velocidad()*100.0)/100.0,Math.round(c.getA()*100.0)/100.0};
+            Object v1[] = {Math.round(c.posicion()*100.0)/100.0 - 100,Math.round(c.velocidad1()*100.0)/100.0,Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
             dt1.addRow(v1);
-            tiempoEncuentro.setText(""+Math.round(c.tiempoAlcance()*100.0)/100.0+" Segundos");
+            tiempoAlcance.setText(""+Math.round(c.tiempoAlcance()*100.0)/100.0+" Segundos");
         }  
     }
     
@@ -202,7 +242,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        tiempoEncuentro = new javax.swing.JLabel();
+        tiempoAlcance = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -243,6 +283,9 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         continerBtnClean = new javax.swing.JPanel();
         btnClean = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
+        continerBtnSave = new javax.swing.JPanel();
+        btnGuardar = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MRUVProject");
@@ -285,11 +328,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         jPanel5.add(jLabel13);
         jLabel13.setBounds(310, 660, 135, 22);
 
-        tiempoEncuentro.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
-        tiempoEncuentro.setForeground(new java.awt.Color(255, 255, 255));
-        tiempoEncuentro.setText("Inicie la simulacion para ver resultados");
-        jPanel5.add(tiempoEncuentro);
-        tiempoEncuentro.setBounds(450, 660, 268, 22);
+        tiempoAlcance.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        tiempoAlcance.setForeground(new java.awt.Color(255, 255, 255));
+        tiempoAlcance.setText("Inicie la simulacion para ver resultados");
+        jPanel5.add(tiempoAlcance);
+        tiempoAlcance.setBounds(450, 660, 268, 22);
 
         jLabel14.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -554,7 +597,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         jPanel5.add(jScrollPane4);
         jScrollPane4.setBounds(760, 520, 240, 180);
 
-        continerBtnBack.setBackground(new java.awt.Color(51, 220, 51));
+        continerBtnBack.setBackground(new java.awt.Color(255, 51, 51));
         continerBtnBack.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
         continerBtnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         continerBtnBack.setPreferredSize(new java.awt.Dimension(150, 40));
@@ -575,13 +618,13 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         continerBtnBack.add(btnVolver, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(continerBtnBack);
-        continerBtnBack.setBounds(1055, 610, 160, 50);
+        continerBtnBack.setBounds(1055, 650, 160, 50);
 
         jLabel19.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
         jLabel19.setText("(Atl + L)");
         jPanel5.add(jLabel19);
-        jLabel19.setBounds(1220, 550, 60, 22);
+        jLabel19.setBounds(1220, 520, 60, 22);
 
         continerBtnClean.setBackground(new java.awt.Color(220, 220, 51));
         continerBtnClean.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
@@ -605,13 +648,43 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         continerBtnClean.add(btnClean, java.awt.BorderLayout.CENTER);
 
         jPanel5.add(continerBtnClean);
-        continerBtnClean.setBounds(1055, 540, 160, 50);
+        continerBtnClean.setBounds(1055, 510, 160, 50);
 
         jLabel20.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(153, 153, 153));
         jLabel20.setText("(Atl + V)");
         jPanel5.add(jLabel20);
-        jLabel20.setBounds(1220, 620, 60, 22);
+        jLabel20.setBounds(1220, 660, 60, 22);
+
+        continerBtnSave.setBackground(new java.awt.Color(51, 220, 51));
+        continerBtnSave.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(0, 0, 0)));
+        continerBtnSave.setForeground(new java.awt.Color(255, 255, 255));
+        continerBtnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        continerBtnSave.setPreferredSize(new java.awt.Dimension(150, 40));
+        continerBtnSave.setLayout(new java.awt.BorderLayout());
+
+        btnGuardar.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 0));
+        btnGuardar.setMnemonic('g');
+        btnGuardar.setText("Guardar datos");
+        btnGuardar.setContentAreaFilled(false);
+        btnGuardar.setMaximumSize(new java.awt.Dimension(177, 37));
+        btnGuardar.setMinimumSize(new java.awt.Dimension(177, 37));
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        continerBtnSave.add(btnGuardar, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(continerBtnSave);
+        continerBtnSave.setBounds(1055, 580, 160, 50);
+
+        jLabel21.setFont(new java.awt.Font("Yu Gothic UI", 0, 16)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel21.setText("(Atl + G)");
+        jPanel5.add(jLabel21);
+        jLabel21.setBounds(1220, 590, 60, 22);
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
@@ -744,8 +817,28 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtAce1KeyTyped
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if(select.showDialog(this, "Guardar texto") == JFileChooser.APPROVE_OPTION) {
+            archivo = select.getSelectedFile();
+            if(archivo.getName().endsWith("txt")) {
+                String contenido = guardarTexto();
+                String respuesta = saveText.guardarTexto(archivo, contenido);
+                if(respuesta != null){
+                    JOptionPane.showMessageDialog(null, respuesta);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Hubo un error al momento de guardar el texto");
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "El nombre del archivo debe terminar en .txt");
+            }
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClean;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnParar;
     private javax.swing.JButton btnPausar;
@@ -756,6 +849,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbVelocidad;
     public javax.swing.JPanel continerBtnBack;
     public javax.swing.JPanel continerBtnClean;
+    public javax.swing.JPanel continerBtnSave;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -770,6 +864,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -786,7 +881,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable tabla;
     private javax.swing.JTable tabla1;
-    private javax.swing.JLabel tiempoEncuentro;
+    private javax.swing.JLabel tiempoAlcance;
     private javax.swing.JTextField txtAce;
     private javax.swing.JTextField txtAce1;
     private javax.swing.JTextField txtPos;
@@ -873,6 +968,14 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
     public void setBtnClean(javax.swing.JButton btnClean) {
         this.btnClean = btnClean;
+    }
+
+    public javax.swing.JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+
+    public void setBtnGuardar(javax.swing.JButton btnGuardar) {
+        this.btnGuardar = btnGuardar;
     }
 
 

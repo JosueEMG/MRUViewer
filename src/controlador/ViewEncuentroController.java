@@ -23,6 +23,7 @@ public class ViewEncuentroController implements MouseListener{
     public final void events() {
         menu.getBtnVolver().addMouseListener(this);
         menu.getBtnClean().addMouseListener(this);
+        menu.getBtnGuardar().addMouseListener(this);
     }
 
     public ViewEncuentroController(frmCarroEncuentro menu) {
@@ -51,11 +52,14 @@ public class ViewEncuentroController implements MouseListener{
         
         Object evt = me.getSource();
         
-        if(evt.equals(menu.getBtnVolver())) {
-            changeBackground(menu.continerBtnBack, new Color(100, 220, 150));
+        if(evt.equals(menu.getBtnGuardar())) {
+            changeBackground(menu.continerBtnSave, new Color(100, 220, 150));
         }
         else if(evt.equals(menu.getBtnClean())){
             changeBackground(menu.continerBtnClean, new Color(220, 220, 150));
+        }
+        else if(evt.equals(menu.getBtnVolver())){
+            changeBackground(menu.continerBtnBack, new Color(255, 80, 80));
         }
     }
 
@@ -64,11 +68,14 @@ public class ViewEncuentroController implements MouseListener{
         
         Object evt = me.getSource();
         
-        if(evt.equals(menu.getBtnVolver())) {
-            changeBackground(menu.continerBtnBack, new Color(51, 220, 51));
+        if(evt.equals(menu.getBtnGuardar())) {
+            changeBackground(menu.continerBtnSave, new Color(51, 220, 51));
         }
         else if(evt.equals(menu.getBtnClean())){
             changeBackground(menu.continerBtnClean, new Color(220, 220, 51));
+        }
+        else if(evt.equals(menu.getBtnVolver())){
+            changeBackground(menu.continerBtnBack, new Color(255, 0, 0));
         }
     }
     
