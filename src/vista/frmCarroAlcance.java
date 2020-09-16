@@ -650,7 +650,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
     private void txtPosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPosKeyTyped
         char letra = evt.getKeyChar();
-        if(Character.isLetter(letra)) {
+        if(Character.isSpaceChar(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep(); 
+        }
+        else if(Character.isLetter(letra)) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -662,7 +666,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
     private void txtPos1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPos1KeyTyped
         char letra = evt.getKeyChar();
-        if(Character.isLetter(letra)) {
+        if(Character.isSpaceChar(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep(); 
+        }
+        else if(Character.isLetter(letra)) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -674,7 +682,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
     private void txtVelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVelKeyTyped
         char letra = evt.getKeyChar();
-        if(Character.isLetter(letra)) {
+        if(Character.isSpaceChar(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep(); 
+        }
+        else if(Character.isLetter(letra)) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -686,7 +698,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
     private void txtVel1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtVel1KeyTyped
         char letra = evt.getKeyChar();
-        if(Character.isLetter(letra)) {
+        if(Character.isSpaceChar(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep(); 
+        }
+        else if(Character.isLetter(letra)) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -698,7 +714,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
     private void txtAceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAceKeyTyped
         char letra = evt.getKeyChar();
-        if(Character.isLetter(letra)) {
+        if(Character.isSpaceChar(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep(); 
+        }
+        else if(Character.isLetter(letra)) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
@@ -710,7 +730,11 @@ public class frmCarroAlcance extends javax.swing.JFrame {
 
     private void txtAce1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAce1KeyTyped
         char letra = evt.getKeyChar();
-        if(Character.isLetter(letra)) {
+        if(Character.isSpaceChar(letra)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep(); 
+        }
+        else if(Character.isLetter(letra)) {
             evt.consume();
             Toolkit.getDefaultToolkit().beep();
         }
