@@ -85,11 +85,11 @@ public class CocheAlcance {
     }
     
     public double posicion() {
-        return x + v*tiempoAlcance() + (a*tiempoAlcance()*tiempoAlcance())/2;
+        return x + v*tiempoAlcance() + (a*Math.pow(tiempoAlcance(), 2))/2;
     }
     
     public double posicion1() {
-        return x1 + v1*tiempoAlcance() + (a1*tiempoAlcance()*tiempoAlcance())/2;
+        return x1 + v1*tiempoAlcance() + (a1*Math.pow(tiempoAlcance(), 2))/2;
     }
     
     public double velocidad() {
