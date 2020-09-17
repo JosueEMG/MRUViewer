@@ -85,16 +85,16 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     
     void confirmar() {
         if(salirDirecto){
-            this.setVisible(false);
             frmMenu menu = new frmMenu();
             menu.setVisible(true);
+            this.dispose();
         }
         else{
             int valor = JOptionPane.showConfirmDialog(this, "Se eliminaran todos los datos registrados. \n¿Está seguro(a) de volver a la ventana pricipal?", "Advertencia", JOptionPane.YES_NO_OPTION);
             if(valor == JOptionPane.YES_OPTION){
-                this.setVisible(false);
                 frmMenu menu = new frmMenu();
                 menu.setVisible(true);
+                this.dispose();
             }
             else{
                 salirDirecto = false;

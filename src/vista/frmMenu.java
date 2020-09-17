@@ -206,7 +206,7 @@ public class frmMenu extends javax.swing.JFrame {
     private void btnEncuentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuentroActionPerformed
         frmCarroEncuentro frm = new frmCarroEncuentro();
         frm.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnEncuentroActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -216,7 +216,7 @@ public class frmMenu extends javax.swing.JFrame {
     private void btnAlcanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlcanceActionPerformed
         frmCarroAlcance frm = new frmCarroAlcance();
         frm.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnAlcanceActionPerformed
 
     /**
