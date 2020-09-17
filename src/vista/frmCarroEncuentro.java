@@ -285,7 +285,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MRUVProject");
+        setTitle("MRUViewer");
         setMinimumSize(new java.awt.Dimension(1300, 750));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
