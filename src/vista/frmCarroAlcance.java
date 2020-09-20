@@ -233,7 +233,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     }
     
     public int velocidad() {
-        int vec[] = {15, 35, 5};
+        int vec[] = {15, 45};
         return vec[cbVelocidad.getSelectedIndex()];
     }
 
@@ -400,7 +400,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         btnParar.setBounds(120, 90, 100, 50);
 
         cbVelocidad.setFont(new java.awt.Font("Yu Gothic UI", 1, 16)); // NOI18N
-        cbVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento", "Rapido" }));
+        cbVelocidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Lento" }));
         jPanel4.add(cbVelocidad);
         cbVelocidad.setBounds(20, 180, 200, 32);
 
