@@ -5,6 +5,7 @@
  */
 
 package controlador;
+import java.awt.Toolkit;
 import java.util.*;
 import javax.swing.JOptionPane;
 import modelo.CocheAlcance;
@@ -40,6 +41,7 @@ public class CocheAlcanceController {
             list.clear();
         }
         else {
+            Toolkit.getDefaultToolkit().beep();
             JOptionPane.showMessageDialog(null, "No hay datos registrados en las tablas", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         }
     }

@@ -147,9 +147,15 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     void iniciar() {
         try {
             if(Integer.parseInt(txtPos.getText()) > Integer.parseInt(txtPos1.getText())) {
+                Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "La posicion del coche 1 tiene que ser menor al del coche 2", "Advertencia", JOptionPane.OK_OPTION);
             }
+            else if(Double.parseDouble(txtVel.getText()) > 136 || Double.parseDouble(txtVel.getText()) > 136) {
+                Toolkit.getDefaultToolkit().beep();
+                JOptionPane.showMessageDialog(null, "La velocidad del coche 1 o la del coche 2 superan el limite actual (136 m/s)", "Advertencia", JOptionPane.OK_OPTION);
+            }
             else if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
+                Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "Debe ingresar aceleracion mayor a 0 o velocidad positiva", "Advertencia", JOptionPane.OK_OPTION);
             }
             else{
@@ -170,6 +176,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             botonesFinal();
+            Toolkit.getDefaultToolkit().beep();
             JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos \no tambien ingrese valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         } 
     }
@@ -824,10 +831,12 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, respuesta);
                 }
                 else {
+                    Toolkit.getDefaultToolkit().beep();
                     JOptionPane.showMessageDialog(null, "Hubo un error al momento de guardar el texto");
                 }
             }
             else {
+                Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "El nombre del archivo debe terminar en .txt");
             }
         }

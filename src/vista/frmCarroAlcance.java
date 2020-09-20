@@ -147,12 +147,19 @@ public class frmCarroAlcance extends javax.swing.JFrame {
     void iniciar() {
         try {
             if(Integer.parseInt(txtPos.getText()) > Integer.parseInt(txtPos1.getText())) {
+                Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "La posicion del coche 1 tiene que ser menor al del coche 2", "Advertencia", JOptionPane.OK_OPTION);
             }
+            else if(Double.parseDouble(txtVel.getText()) > 136 || Double.parseDouble(txtVel.getText()) > 136) {
+                Toolkit.getDefaultToolkit().beep();
+                JOptionPane.showMessageDialog(null, "La velocidad del coche 1 o la del coche 2 superan el limite actual (136 m/s)", "Advertencia", JOptionPane.OK_OPTION);
+            }
             else if(Double.parseDouble(txtAce.getText()) <= 0 || Double.parseDouble(txtAce1.getText()) <= 0 || Double.parseDouble(txtVel.getText()) < 0 || Double.parseDouble(txtVel1.getText()) <0 ){
+                Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "Debe ingresar aceleracion mayor a 0 o velocidad positiva", "Advertencia", JOptionPane.OK_OPTION);
             }
             else if(Double.parseDouble(txtAce1.getText()) >= Double.parseDouble(txtAce.getText())){
+                Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "La aceleración del coche 1 tiene que ser mayor a la del coche 2", "Advertencia", JOptionPane.OK_OPTION);
             }
             else{
@@ -173,6 +180,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             botonesFinal();
+            Toolkit.getDefaultToolkit().beep();
             JOptionPane.showMessageDialog(null, "Ingrese valores a todos los campos \no tambien ingrese valores enteros a las posiciones", "Advetencia" , JOptionPane.ERROR_MESSAGE);
         } 
     }
