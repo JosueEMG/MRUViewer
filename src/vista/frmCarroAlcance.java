@@ -839,7 +839,9 @@ public class frmCarroAlcance extends javax.swing.JFrame {
                 }
             }
             else {
+                Toolkit.getDefaultToolkit().beep();
                 JOptionPane.showMessageDialog(null, "El nombre del archivo debe terminar en .txt");
+                btnGuardarActionPerformed(evt);
             }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
