@@ -28,6 +28,14 @@ public abstract class Coche {
         this.a1 = a1;
     }
 
+    public double posicion() {
+        return getX() + getV()*tiempo() + (getA()*Math.pow(tiempo(), 2))/2;
+    }
+    
+    public double velocidad() {
+        return getV() + getA()*tiempo();
+    }
+    
     public double getX() {
         return x;
     }

@@ -16,16 +16,8 @@ public class CocheEncuentro extends Coche{
         super(x, x1, v, v1, a, a1);
     }
     
-    public double posicion() {
-        return super.getX() + super.getV()*tiempo() + (super.getA()*Math.pow(tiempo(), 2))/2;
-    }
-    
     public double posicion1() {
         return super.getX1() - super.getV1()*tiempo() - (super.getA1()*Math.pow(tiempo(), 2))/2;
-    }
-    
-    public double velocidad() {
-        return super.getV() + super.getA()*tiempo();
     }
     
     public double velocidad1() {
