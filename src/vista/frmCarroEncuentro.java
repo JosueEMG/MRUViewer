@@ -191,7 +191,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             Object v1[] = {Math.round(c.posicion1()*100.0)/100.0, Math.round(c.velocidad1()*100.0)/100.0*-1, Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
             dt1.addRow(v1);
-            tiempoEncuentro.setText(""+Math.round(c.tiempoEncuentro()*100.0)/100.0+" Segundos");
+            tiempoEncuentro.setText(""+Math.round(c.tiempo()*100.0)/100.0+" Segundos");
         }  
     }
     

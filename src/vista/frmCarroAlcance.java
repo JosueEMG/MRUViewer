@@ -195,7 +195,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
             Object v1[] = {Math.round(c.posicion()*100.0)/100.0, Math.round(c.velocidad1()*100.0)/100.0, Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
             dt1.addRow(v1);
-            tiempoAlcance.setText(""+Math.round(c.tiempoAlcance()*100.0)/100.0+" Segundos");
+            tiempoAlcance.setText(""+Math.round(c.tiempo()*100.0)/100.0+" Segundos");
         }  
     }
     

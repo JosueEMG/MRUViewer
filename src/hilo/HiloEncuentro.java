@@ -18,6 +18,7 @@ import vista.frmCarroEncuentro;
  * @author Josue Emmanuel Medina Garcia
  */
 public class HiloEncuentro extends Thread{
+
     boolean estado = true;
     private frmCarroEncuentro frm; 
     private JLabel carro;
@@ -31,7 +32,6 @@ public class HiloEncuentro extends Thread{
         this.carro1 = carro1;
         this.v = Double.parseDouble(frm.getTxtVel().getText());
         this.v1 = Double.parseDouble(frm.getTxtVel1().getText());
-
     }
     
     public static double posicion(double x, double v, double a, int t) {
