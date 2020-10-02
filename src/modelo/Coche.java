@@ -36,6 +36,12 @@ public abstract class Coche {
         return getV() + getA()*tiempo();
     }
     
+    public abstract double tiempo();
+    
+    public abstract double posicion1();
+    
+    public abstract double velocidad1();
+
     public double getX() {
         return x;
     }
@@ -83,7 +89,5 @@ public abstract class Coche {
     public void setA1(double a1) {
         this.a1 = a1;
     }
-    
-    public abstract double tiempo();
     
 }
