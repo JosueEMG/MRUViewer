@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import modelo.CocheEncuentro;
-import controlador.CocheEncuentroController;
+import controlador.CocheController;
 import javax.swing.JOptionPane;
 import hilo.HiloEncuentro;
 import java.awt.event.WindowAdapter;
@@ -35,7 +35,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
     DefaultTableModel dt1;
     boolean salirDirecto = true;
     static HiloEncuentro h;
-    CocheEncuentroController c = new CocheEncuentroController();
+    CocheController c = new CocheController();
     
     public frmCarroEncuentro() {
         initComponents();
@@ -122,7 +122,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         contenido += "\n";
         contenido += "Xf\tVf\ta\n";
         
-        for (CocheEncuentro c : c.listado()) {
+        for (CocheEncuentro c : c.listadoEncuentro()) {
             contenido += Double.toString(Math.round(c.posicion()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.velocidad()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.getA()*100.0)/100.0) + "\n";
         }
         
@@ -132,7 +132,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         contenido += "\n";
         contenido += "Xf\tVf\ta\n";
         
-        for (CocheEncuentro c : c.listado()) {
+        for (CocheEncuentro c : c.listadoEncuentro()) {
             contenido += Double.toString(Math.round(c.posicion1()*100.0)/100.0) +"\t"+ Double.toString(Math.round(c.velocidad1()*100.0)/100.0*-1) +"\t"+ Double.toString(Math.round(c.getA1()*100.0)/100.) + "\n";
         }
         
@@ -186,7 +186,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         dt1 = (DefaultTableModel)tabla1.getModel();
         dt.setRowCount(0);
         dt1.setRowCount(0);
-        for (CocheEncuentro c : c.listado()) {
+        for (CocheEncuentro c : c.listadoEncuentro()) {
             Object v[] = {Math.round(c.posicion()*100.0)/100.0, Math.round(c.velocidad()*100.0)/100.0, Math.round(c.getA()*100.0)/100.0};
             Object v1[] = {Math.round(c.posicion1()*100.0)/100.0, Math.round(c.velocidad1()*100.0)/100.0*-1, Math.round(c.getA1()*100.0)/100.0};
             dt.addRow(v);
@@ -207,7 +207,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
             txtVel1.setText("");
             carro.setLocation(0, 310);
             carro1.setLocation(900, 310);
-            c.eliminar();
+            c.eliminarEncuentro();
             try {
                 dt.setRowCount(0);
                 dt1.setRowCount(0);    
