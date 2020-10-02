@@ -107,7 +107,7 @@ public class frmCarroEncuentro extends javax.swing.JFrame {
         carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
         carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
         mostrarImg();
-        h = new HiloEncuentro(this, carro, carro1, txtVel, txtVel1);
+        h = new HiloEncuentro(this, carro, carro1);
         h.start();
     }
     

@@ -107,7 +107,7 @@ public class frmCarroAlcance extends javax.swing.JFrame {
         carro.setLocation(Integer.parseInt(txtPos.getText())-100, 310);
         carro1.setLocation(Integer.parseInt(txtPos1.getText()), 310);
         mostrarImg();
-        h = new HiloAlcance(this, carro, carro1, txtVel, txtVel1);
+        h = new HiloAlcance(this, carro, carro1);
         h.start();
     }
     

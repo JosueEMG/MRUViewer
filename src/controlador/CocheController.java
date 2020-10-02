@@ -60,7 +60,7 @@ public class CocheController {
     }
     
     public void eliminarAlcance() {
-        if(encontrarEncuentro()) {
+        if(encontrarAlcance()) {
             lista.clear();
         }
         else {
