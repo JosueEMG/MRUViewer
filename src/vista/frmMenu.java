@@ -91,7 +91,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Created by: Josué Emmnauel Medina García");
+        jLabel2.setText("Created by: Josué Emmanuel Medina García");
         menu.add(jLabel2);
         jLabel2.setBounds(10, 330, 270, 20);
 
